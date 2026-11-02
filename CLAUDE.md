@@ -1,6 +1,6 @@
 # Claude Code Account Switcher for GNOME
 
-Claude Code account switcher for GNOME Shell 46, **native and self-contained** (no Python, no third-party switcher). Two pieces, both GJS (ES modules):
+Claude Code account switcher for GNOME Shell 45 to 51, **native and self-contained** (no Python, no third-party switcher). Two pieces, both GJS (ES modules):
 
 - `engine/`: the `claude-accounts` **engine**, a command-line program run with `gjs -m`. It is the only thing that reads or writes credentials.
 - `extension/`: the GNOME Shell **extension**. It draws the UI and runs the engine as a subprocess with `--json`.
@@ -22,9 +22,23 @@ Claude Code account switcher for GNOME Shell 46, **native and self-contained** (
 - One engine command at a time from the extension (`busy` flag); switching has priority over refreshing.
 - Every `--json` output carries `schemaVersion: 1`; the extension rejects any other version.
 
+## GNOME Shell versions (45 to 51)
+
+One codebase supports every version in `metadata.json` `shell-version`. **Only declare a version after `just compat` passes on it** (tests, 20/20 cycles, 0 errors, screenshots that look right). Known differences:
+
+- Vertical boxes: use `vbox()` from `lib/vbox.js`, never `vertical: true` (removed in 51) nor `orientation` alone (absent before 48).
+- `St.ScrollView` on 45 is an `St.Bin`: add the child with `add_actor()` when it exists (otherwise it gets zero height) and detach/destroy it before destroying the menu.
+- No `Animation.Spinner` (fragile across versions): use `lib/spinner.js`.
+- Notifications: `Main.notify()` before 46, an own `MessageTray.Source` from 46 (`SHELL_MAJOR` in `extension.js`).
+- System accent colour: only when the `accent-color` key exists (47+); feature-detect, do not compare versions, when possible.
+- Engine: no static `gi://GLibUnix` import (GLib < 2.80); see `onSigterm()` in `usecases/add.js`.
+- Avoid text glyphs such as ↻ or ⚠ in the UI: many distro fonts lack them; use symbolic icons.
+
 ## Development
 
 - `just test` (≈4 min, includes a 1,000-rotation race) / `just test-quick` / `just lint`.
 - Tests run the engine in a temporary `HOME` under `/tmp` with a fake API and a fake `claude`. **Never test against the real `~/.claude`.**
 - `just nested-sandbox` opens a nested GNOME Shell on a sandbox (fake HOME, fake accounts, own `dbus-run-session`, so your real dconf is untouched). `just screenshots`, `just prefs-shots`, `just cycle` and `just cycle-nested` automate screenshots and enable/disable cycles.
+- `just compat [fedora releases]` tests GNOME Shell 45–51 in Docker (see CONTRIBUTING.md).
 - After editing the `.gschema.xml` or `po/`: `just build`. Package with `just pack`.
+- Privacy: commits use the GitHub noreply email and UTC author **and committer** dates; screenshots are taken in UTC (the sandbox sets `TZ=UTC`) and stripped of PNG metadata. Releases: see CONTRIBUTING.md.

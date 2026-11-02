@@ -17,6 +17,7 @@ shell_in_sandbox() { # $1 = nested|headless ; extra env must be exported by the 
     # headless: no way to reach the host display from inside the sandbox
     [ "$mode" = headless ] && unset DISPLAY WAYLAND_DISPLAY
     export LANG=en_US.UTF-8 LANGUAGE="${CLAUDE_ACCOUNTS_LANG:-en}"
+    export TZ="${CLAUDE_ACCOUNTS_TZ:-UTC}"   # screenshots must not reveal the local time zone
     export MUTTER_DEBUG_DUMMY_MODE_SPECS=1600x900
     schemedir="$REPO/extension/schemas"
     # Flags differ between GNOME versions (e.g. X11/--wayland is gone in newer ones).

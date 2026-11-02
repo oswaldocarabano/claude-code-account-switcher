@@ -164,7 +164,7 @@ Each GNOME Shell release is tested for real in a container: the full engine test
 | 50 | Fedora 44 | Ubuntu 26.04 LTS |
 | 51 | Fedora 45 | Arch, openSUSE Tumbleweed (rolling) |
 
-Run the matrix yourself with `just compat` (needs Docker).
+Run the matrix yourself with `just compat` (needs Docker); see [CONTRIBUTING.md](CONTRIBUTING.md#testing-on-every-gnome-shell-version).
 
 ## Development
 
@@ -178,7 +178,7 @@ just compat          # test on GNOME Shell 45–51 in Docker containers
 just pack            # build dist/claude-account-switcher@oswaldocarabano.github.io.shell-extension.zip
 ```
 
-Translations live in `po/` (`python3 tools/xgettext.py` regenerates the template). Contributions in other languages are welcome.
+Translations live in `po/` (`python3 tools/xgettext.py` regenerates the template). Contributions in other languages are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the compatibility matrix and the release process.
 
 ## Credits
 
