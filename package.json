@@ -1,0 +1,9 @@
+{
+  "name": "claude-account-switcher-dev",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "description": "Development tools only (eslint). The extension does not use Node at runtime.",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

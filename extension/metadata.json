@@ -1,0 +1,12 @@
+{
+  "uuid": "claude-account-switcher@oswaldocarabano.github.io",
+  "name": "Claude Code Account Switcher",
+  "description": "Switch between Claude Code accounts from the top bar without logging out, keeping every open conversation, and see each account's 5-hour and weekly usage. Add accounts with the official browser sign-in. Self-contained: needs only Claude Code.",
+  "shell-version": [
+    "46"
+  ],
+  "url": "https://github.com/oswaldocarabano/claude-code-account-switcher",
+  "settings-schema": "org.gnome.shell.extensions.claude-account-switcher",
+  "gettext-domain": "claude-account-switcher",
+  "version-name": "0.1.0"
+}

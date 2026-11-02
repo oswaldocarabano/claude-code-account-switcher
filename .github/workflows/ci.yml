@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GJS and libsoup 3
+        run: sudo apt-get update && sudo apt-get install -y gjs gir1.2-soup-3.0
+      - name: Unit and end-to-end tests (sandboxed, fake API)
+        run: gjs -m tests/run.js --quick
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Lint (GNOME Shell rules)
+        run: |
+          npm install --no-audit --no-fund
+          npx eslint engine extension/lib extension/extension.js extension/prefs.js shared tests tools/devtools tools/sandbox.js
+      - name: Translations compile
+        run: python3 tools/msgfmt.py po /tmp/locale claude-account-switcher

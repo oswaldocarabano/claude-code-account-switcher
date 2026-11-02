@@ -1,0 +1,600 @@
+# Spanish translation of Claude Code Account Switcher.
+msgid ""
+msgstr ""
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Could not read %s: %s"
+msgstr "No se pudo leer %s: %s"
+
+msgid "Too many symbolic links: %s"
+msgstr "Demasiados enlaces simbólicos: %s"
+
+msgid "Tried to write an invalid number to JSON"
+msgstr "Se intentó escribir un número no válido en JSON"
+
+msgid "Could not write %s: %s"
+msgstr "No se pudo escribir %s: %s"
+
+msgid "Could not create %s"
+msgstr "No se pudo crear %s"
+
+msgid "Could not move %s: %s"
+msgstr "No se pudo mover %s: %s"
+
+msgid "Could not create the lock %s: %s"
+msgstr "No se pudo crear el bloqueo %s: %s"
+
+msgid "The lock %s is still held: Claude Code or another process is writing. Try again in a few seconds."
+msgstr "El bloqueo %s sigue ocupado: Claude Code u otro proceso está escribiendo. Reintenta en unos segundos."
+
+msgid "registry.json is damaged; it is left untouched. Check it by hand."
+msgstr "registry.json está dañado; no se modifica. Revísalo a mano."
+
+msgid "registry.json has an unknown version (%s)."
+msgstr "registry.json tiene una versión desconocida (%s)."
+
+msgid "No accounts yet. Use: claude-accounts add --current"
+msgstr "Todavía no hay cuentas. Usa: claude-accounts add --current"
+
+msgid "Active account: %s"
+msgstr "Cuenta activa: %s"
+
+msgid "Not switched (%s)."
+msgstr "No se cambió (%s)."
+
+msgid "warning"
+msgstr "aviso"
+
+msgid "Name the account: claude-accounts switch <n|email|alias> or --best"
+msgstr "Indica la cuenta: claude-accounts switch <n|correo|alias> o --best"
+
+msgid "Open in your browser: %s"
+msgstr "Abre en el navegador: %s"
+
+msgid "Unknown command: %s. Use: claude-accounts help"
+msgstr "Orden desconocida: %s. Usa: claude-accounts help"
+
+msgid "Claude Code is not signed in."
+msgstr "Claude Code no tiene ninguna sesión iniciada."
+
+msgid "The current Claude Code session has no tokens: sign in again."
+msgstr "La sesión actual de Claude Code no tiene tokens: inicia sesión otra vez."
+
+msgid "oauthAccount was not found in the Claude Code configuration."
+msgstr "No se encontró oauthAccount en la configuración de Claude Code."
+
+msgid "Claude Code (claude) was not found."
+msgstr "No se encontró Claude Code (claude)."
+
+msgid "Could not start claude: %s"
+msgstr "No se pudo lanzar claude: %s"
+
+msgid "Sign-in took too long."
+msgstr "El inicio de sesión tardó demasiado."
+
+msgid "Sign-in cancelled."
+msgstr "Inicio de sesión cancelado."
+
+msgid "Claude Code did not complete the sign-in."
+msgstr "Claude Code no completó el inicio de sesión."
+
+msgid "The sign-in did not leave a valid credential."
+msgstr "El inicio de sesión no dejó una credencial válida."
+
+msgid "The current session does not match its saved account; a backup was saved and no account was touched."
+msgstr "La sesión actual no coincide con su cuenta guardada; se guardó un respaldo y no se tocó ninguna cuenta."
+
+msgid "The current session belongs to an account Claude Account Switcher does not know; a backup was saved."
+msgstr "La sesión actual es de una cuenta que Claude Account Switcher no conoce; se guardó un respaldo."
+
+msgid "The latest copy of the active account could not be confirmed (offline); the previous one was backed up."
+msgstr "No se pudo confirmar la última copia de la cuenta activa (sin red); la anterior quedó respaldada."
+
+msgid "Claude Code lost the session of the active account: sign in again."
+msgstr "Claude Code perdió la sesión de la cuenta activa: inicia sesión otra vez."
+
+msgid "There is no account “%s”."
+msgstr "No existe la cuenta «%s»."
+
+msgid "The active account cannot be removed. Switch to another one first."
+msgstr "No se puede quitar la cuenta activa. Cambia antes a otra."
+
+msgid "An alias cannot be just a number."
+msgstr "Un alias no puede ser solo un número."
+
+msgid "The alias “%s” is already in use."
+msgstr "El alias «%s» ya está en uso."
+
+msgid "The server rejected the OAuth client; the official CLI will be used to renew."
+msgstr "El servidor rechazó el cliente OAuth; se usará la CLI oficial para renovar."
+
+msgid "Account %d (%s) needs to sign in again."
+msgstr "La cuenta %d (%s) necesita iniciar sesión otra vez."
+
+msgid "The copy of account %d has no tokens."
+msgstr "La copia de la cuenta %d no tiene tokens."
+
+msgid "Account %d has no saved oauthAccount."
+msgstr "La cuenta %d no tiene oauthAccount guardado."
+
+msgid "Could not switch account; the previous state was restored (%s)."
+msgstr "No se pudo cambiar de cuenta; se restauró el estado anterior (%s)."
+
+msgid "Could not switch account nor restore the previous state (%s). Backups are in stash/."
+msgstr "No se pudo cambiar de cuenta ni restaurar el estado anterior (%s). Hay respaldos en stash/."
+
+msgid "Claude Code still reports another account. Check with /status."
+msgstr "Claude Code aún informa otra cuenta. Revisa con /status."
+
+msgid "Claude Code keeps renewing its credentials; try again in a few seconds."
+msgstr "Claude Code renueva sus credenciales sin parar; reintenta en unos segundos."
+
+msgid "resets at %s"
+msgstr "se reinicia a las %s"
+
+msgid "%d percent"
+msgstr "%d por ciento"
+
+msgid "no data"
+msgstr "sin datos"
+
+msgid "reset"
+msgstr "reiniciado"
+
+msgid "5 h"
+msgstr "5 h"
+
+msgid "7 d"
+msgstr "7 d"
+
+msgid "ACTIVE"
+msgstr "ACTIVA"
+
+msgid "SIGN IN"
+msgstr "INICIAR SESIÓN"
+
+msgid "OUT OF ROTATION"
+msgstr "FUERA DE ROTACIÓN"
+
+msgid "5-hour usage"
+msgstr "Uso de 5 horas"
+
+msgid "7-day usage"
+msgstr "Uso de 7 días"
+
+msgid "⚠ The session of this account expired: sign in again."
+msgstr "⚠ La sesión de esta cuenta caducó: inicia sesión otra vez."
+
+msgid "Extra"
+msgstr "Extra"
+
+msgid "Query limit reached; data from %s"
+msgstr "Límite de consultas; datos de %s"
+
+msgid "Data from %s"
+msgstr "Datos de %s"
+
+msgid "Usage not available right now"
+msgstr "Uso no disponible ahora"
+
+msgid "Usage not read yet"
+msgstr "Uso aún sin leer"
+
+msgid "Session expires on %s"
+msgstr "La sesión caduca el %s"
+
+msgid "Last copy not confirmed (a backup exists)"
+msgstr "Última copia sin confirmar (hay respaldo)"
+
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
+msgid "Renew"
+msgstr "Renovar"
+
+msgid "active"
+msgstr "activa"
+
+msgid "The Claude Account Switcher engine returned an unreadable answer."
+msgstr "El motor de Claude Account Switcher devolvió una respuesta ilegible."
+
+msgid "Incompatible engine version (schema %s)."
+msgstr "Versión de motor no compatible (esquema %s)."
+
+msgid "Claude Account Switcher was disabled."
+msgstr "Claude Account Switcher se desactivó."
+
+msgid "Could not start gjs: %s"
+msgstr "No se pudo lanzar gjs: %s"
+
+msgid "The Claude Account Switcher engine did not answer in time."
+msgstr "El motor de Claude Account Switcher no respondió a tiempo."
+
+msgid "Incompatible engine version."
+msgstr "Versión de motor no compatible."
+
+msgid "The sign-in did not finish."
+msgstr "El inicio de sesión no terminó."
+
+msgid "%d d %d h"
+msgstr "%d d %d h"
+
+msgid "%d h %d min"
+msgstr "%d h %d min"
+
+msgid "%d min"
+msgstr "%d min"
+
+msgid "now"
+msgstr "ahora"
+
+msgid "never"
+msgstr "nunca"
+
+msgid "just now"
+msgstr "justo ahora"
+
+msgid "."
+msgstr ","
+
+msgid "Claude accounts"
+msgstr "Cuentas de Claude"
+
+msgid "Refresh"
+msgstr "Actualizar"
+
+msgid "Switch to the one with most quota left"
+msgstr "Cambiar a la de más cuota libre"
+
+msgid "Add account"
+msgstr "Agregar cuenta"
+
+msgid "Sign in with another account…"
+msgstr "Iniciar sesión con otra cuenta…"
+
+msgid "Save the current session"
+msgstr "Guardar la sesión actual"
+
+msgid "More"
+msgstr "Más"
+
+msgid "Diagnostics"
+msgstr "Diagnóstico"
+
+msgid "Open backups folder"
+msgstr "Abrir carpeta de copias"
+
+msgid "Could not open the folder"
+msgstr "No se pudo abrir la carpeta"
+
+msgid "Preferences"
+msgstr "Preferencias"
+
+msgid "Claude Account Switcher diagnostics"
+msgstr "Diagnóstico de Claude Account Switcher"
+
+msgid "Checks with problems: %s"
+msgstr "Comprobaciones con problemas: %s"
+
+msgid "Everything looks fine."
+msgstr "Todo está bien."
+
+msgid "Claude account %s, 5-hour usage %s"
+msgstr "Cuenta de Claude %s, uso de 5 horas %s"
+
+msgid "Updating…"
+msgstr "Actualizando…"
+
+msgid "Updated %s"
+msgstr "Actualizado %s"
+
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+msgid "Retry"
+msgstr "Reintentar"
+
+msgid "Signed in as %s, not saved"
+msgstr "Sesión iniciada con %s, sin guardar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Claude Code lost the session of %s"
+msgstr "Claude Code perdió la sesión de %s"
+
+msgid "Sign in again"
+msgstr "Iniciar sesión otra vez"
+
+msgid "The current session does not match its account; a backup was saved."
+msgstr "La sesión actual no coincide con su cuenta; se guardó un respaldo."
+
+msgid "A Claude Code session is answering; it will use the new account on its next request."
+msgstr "Hay una sesión de Claude Code respondiendo; usará la cuenta nueva en su siguiente petición."
+
+msgid "Claude Account Switcher needs gjs"
+msgstr "Claude Account Switcher necesita gjs"
+
+msgid "Install it with:"
+msgstr "Instálalo con:"
+
+msgid "Copy command"
+msgstr "Copiar comando"
+
+msgid "Save your current account to start"
+msgstr "Guarda tu cuenta actual para empezar"
+
+msgid "Claude Code is signed in as %s."
+msgstr "Claude Code tiene la sesión iniciada con %s."
+
+msgid "Add another…"
+msgstr "Agregar otra…"
+
+msgid "Sign in with your first account"
+msgstr "Inicia sesión con tu primera cuenta"
+
+msgid "Your browser opens the official Claude sign-in page."
+msgstr "Se abre la página oficial de inicio de sesión de Claude en tu navegador."
+
+msgid "Sign in…"
+msgstr "Iniciar sesión…"
+
+msgid "Could not add the account"
+msgstr "No se pudo agregar la cuenta"
+
+msgid "Try again"
+msgstr "Reintentar"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Renew %s"
+msgstr "Renovar %s"
+
+msgid "Your browser opened. Sign in with the account you want to add."
+msgstr "Se abrió el navegador. Inicia sesión con la cuenta que quieras agregar."
+
+msgid "Your current session does not change."
+msgstr "Tu sesión actual no cambia."
+
+msgid "Waiting…"
+msgstr "Esperando…"
+
+msgid "Copy link"
+msgstr "Copiar enlace"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Use it as soon as it is added"
+msgstr "Usarla en cuanto termine"
+
+msgid "Account switched (not confirmed)"
+msgstr "Cuenta cambiada (sin confirmar)"
+
+msgid "Claude account: %s"
+msgstr "Cuenta de Claude: %s"
+
+msgid "Your conversations stay open; the next request uses this account."
+msgstr "Tus conversaciones siguen abiertas; la siguiente petición usará esta cuenta."
+
+msgid "Account not switched"
+msgstr "No se cambió de cuenta"
+
+msgid "No other account is available."
+msgstr "No hay otra cuenta disponible."
+
+msgid "Account saved"
+msgstr "Cuenta guardada"
+
+msgid "Could not save the account"
+msgstr "No se pudo guardar la cuenta"
+
+msgid "Account renewed"
+msgstr "Cuenta renovada"
+
+msgid "Resets at %s."
+msgstr "Se reinicia a las %s."
+
+msgid "%s is at %d%%."
+msgstr "%s está al %d%%."
+
+msgid "%s at %d%% (5 h)"
+msgstr "%s al %d%% (5 h)"
+
+msgid "This account needs to sign in again."
+msgstr "Esta cuenta necesita iniciar sesión otra vez."
+
+msgid "Claude Code is renewing its credentials; try again in a few seconds."
+msgstr "Claude Code está renovando sus credenciales; reintenta en unos segundos."
+
+msgid "The Claude Account Switcher engine is not compatible with this extension."
+msgstr "El motor de Claude Account Switcher no es compatible con esta extensión."
+
+msgid "General"
+msgstr "General"
+
+msgid "Claude Code"
+msgstr "Claude Code"
+
+msgid "Claude Account Switcher uses the official claude command to add and renew accounts."
+msgstr "Claude Account Switcher usa el comando oficial claude para agregar y renovar cuentas."
+
+msgid "Path to claude (empty = automatic)"
+msgstr "Ruta de claude (vacía = automática)"
+
+msgid "Detect"
+msgstr "Detectar"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Checking…"
+msgstr "Comprobando…"
+
+msgid "✗ claude not found"
+msgstr "✗ claude no encontrado"
+
+msgid "Refresh interval"
+msgstr "Intervalo de refresco"
+
+msgid "Seconds. The usage endpoint allows few requests per hour; 180 s is a safe value."
+msgstr "Segundos. El servicio de uso admite pocas consultas por hora; 180 s es un valor seguro."
+
+msgid "How saved accounts renew their token"
+msgstr "Cómo renuevan su token las cuentas guardadas"
+
+msgid "Official CLI (recommended)"
+msgstr "CLI oficial (recomendado)"
+
+msgid "Token endpoint (no claude needed)"
+msgstr "Endpoint de tokens (sin claude)"
+
+msgid "Top bar"
+msgstr "Barra superior"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Name and usage"
+msgstr "Nombre y uso"
+
+msgid "Usage only"
+msgstr "Solo uso"
+
+msgid "Name only"
+msgstr "Solo nombre"
+
+msgid "Icon only"
+msgstr "Solo icono"
+
+msgid "7-day bar on the cards"
+msgstr "Barra de 7 días en las tarjetas"
+
+msgid "Notifications and colours"
+msgstr "Avisos y colores"
+
+msgid "Notify every account switch"
+msgstr "Notificar cada cambio de cuenta"
+
+msgid "Warn when 5-hour usage reaches"
+msgstr "Avisar cuando el uso de 5 h llegue a"
+
+msgid "Percent. 0 = never."
+msgstr "Por ciento. 0 = nunca."
+
+msgid "Amber from"
+msgstr "Ámbar desde"
+
+msgid "Percent"
+msgstr "Por ciento"
+
+msgid "Red from"
+msgstr "Rojo desde"
+
+msgid "Use a newly added account right away"
+msgstr "Usar en el acto una cuenta recién agregada"
+
+msgid "Accounts"
+msgstr "Cuentas"
+
+msgid "Saved accounts"
+msgstr "Cuentas guardadas"
+
+msgid "Removing an account moves its copy to the backups folder; nothing is deleted."
+msgstr "Quitar una cuenta mueve su copia a la carpeta de copias; no se borra nada."
+
+msgid "Could not read the accounts"
+msgstr "No se pudieron leer las cuentas"
+
+msgid "No accounts yet"
+msgstr "Todavía no hay cuentas"
+
+msgid "Add one from the top bar menu."
+msgstr "Agrega una desde el menú de la barra superior."
+
+msgid "needs to sign in"
+msgstr "necesita iniciar sesión"
+
+msgid "out of rotation"
+msgstr "fuera de rotación"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Alias saved"
+msgstr "Alias guardado"
+
+msgid "In rotation"
+msgstr "En rotación"
+
+msgid "Used by “switch to the one with most quota left”"
+msgstr "La usa «cambiar a la de más cuota libre»"
+
+msgid "Remove from Claude Account Switcher"
+msgstr "Quitar de Claude Account Switcher"
+
+msgid "Remove…"
+msgstr "Quitar…"
+
+msgid "Switch to another account first."
+msgstr "Cambia antes a otra cuenta."
+
+msgid "Remove account?"
+msgstr "¿Quitar la cuenta?"
+
+msgid "%s will no longer appear in Claude Account Switcher. Its saved copy is moved to the backups folder, not deleted."
+msgstr "%s dejará de aparecer en Claude Account Switcher. Su copia se mueve a la carpeta de copias; no se borra."
+
+msgid "Remove"
+msgstr "Quitar"
+
+msgid "Account removed"
+msgstr "Cuenta quitada"
+
+msgid "About"
+msgstr "Acerca de"
+
+msgid "Claude Code account switcher for the GNOME top bar. Your conversations stay open when you switch."
+msgstr "Selector de cuentas de Claude Code para la barra de GNOME. Tus conversaciones siguen abiertas al cambiar."
+
+msgid "Version"
+msgstr "Versión"
+
+msgid "Repository"
+msgstr "Repositorio"
+
+msgid "Credits"
+msgstr "Créditos"
+
+msgid "Built on what claude-swap (Onur Cetinkol), CCSwitcher (XueshiQiao) and Claude Bar (Thanh Ngô) learned. All MIT licensed."
+msgstr "Construido sobre lo que aprendieron claude-swap (Onur Cetinkol), CCSwitcher (XueshiQiao) y Claude Bar (Thanh Ngô), todos con licencia MIT."
+
+msgid "%d Claude Code session is answering; it will use the new account on its next request."
+msgid_plural "%d Claude Code sessions are answering; they will use the new account on their next request."
+msgstr[0] "Hay %d sesión de Claude Code respondiendo; usará la cuenta nueva en su siguiente petición."
+msgstr[1] "Hay %d sesiones de Claude Code respondiendo; usarán la cuenta nueva en su siguiente petición."
+
+msgid "%d min ago"
+msgid_plural "%d min ago"
+msgstr[0] "hace %d min"
+msgstr[1] "hace %d min"
+
+msgid "%d h ago"
+msgid_plural "%d h ago"
+msgstr[0] "hace %d h"
+msgstr[1] "hace %d h"
+
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "hace %d día"
+msgstr[1] "hace %d días"
+
+msgid "%d account"
+msgid_plural "%d accounts"
+msgstr[0] "%d cuenta"
+msgstr[1] "%d cuentas"

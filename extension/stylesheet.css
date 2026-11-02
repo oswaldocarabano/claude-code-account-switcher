@@ -1,0 +1,146 @@
+/* Claude Account Switcher. Colours come from the Shell theme except the bars.
+ * Dimmed text uses opacity so it reads well on the light and dark Shell.
+ */
+
+/* ---------- top bar ---------- */
+.cas-indicator-box { spacing: 6px; }
+.cas-indicator-name { font-weight: 600; }
+.cas-indicator-sep { opacity: 0.55; }
+.cas-indicator-pct { font-feature-settings: "tnum"; font-weight: 600; }
+.cas-indicator-pct.cas-warn { color: #f6d32d; }
+.cas-indicator-pct.cas-crit { color: #ff7b63; }
+.cas-indicator-alert { color: #f6d32d; icon-size: 10px; }
+
+/* ---------- menu ---------- */
+.cas-menu { width: 368px; }
+.cas-menu .popup-menu-content { padding: 6px 0; }
+
+.cas-header { padding: 6px 14px 8px 18px; spacing: 8px; }
+.cas-header-title { font-weight: 800; font-size: 1.05em; }
+.cas-header-sub { font-size: 0.82em; opacity: 0.6; }
+.cas-icon-button {
+  border-radius: 99px;
+  padding: 6px;
+  min-width: 0; min-height: 0;
+}
+.cas-icon-button StIcon { icon-size: 16px; }
+
+.cas-scroll { max-height: 440px; }
+.cas-cards { spacing: 6px; padding: 0 8px; }
+
+/* ---------- account card ---------- */
+.cas-card-item {
+  padding: 0;
+  margin: 0;
+  border-radius: 14px;
+}
+.cas-card {
+  padding: 10px 12px 11px 12px;
+  border-radius: 14px;
+  spacing: 6px;
+  border-left-width: 3px;
+  border-color: transparent;
+  background-color: rgba(127, 127, 127, 0.07);
+  transition-duration: 150ms;
+}
+.cas-card-item:hover,
+.cas-card-item:focus,
+.cas-card-item:active,
+.cas-holder:hover,
+.cas-holder:active { background-color: transparent; }
+.cas-card-item:hover .cas-card,
+.cas-card-item:focus .cas-card {
+  background-color: rgba(127, 127, 127, 0.12);
+}
+.cas-card-item:focus .cas-card { box-shadow: inset 0 0 0 2px rgba(127, 127, 127, 0.45); }
+.cas-holder { padding: 0; }
+.cas-card-active,
+.cas-card-item:hover .cas-card-active,
+.cas-card-item:focus .cas-card-active {
+  /* background-color and border-left-color are set inline from the accent */
+  border-left-width: 3px;
+}
+.cas-card-inert { opacity: 0.55; }
+
+.cas-card-head { spacing: 8px; }
+.cas-dot { font-size: 0.75em; padding-top: 2px; }
+.cas-title { font-weight: 700; }
+.cas-subtitle { font-size: 0.85em; opacity: 0.65; }
+.cas-badge {
+  font-size: 0.7em;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background-color: rgba(127, 127, 127, 0.22);
+}
+.cas-badge-active { color: #ffffff; }
+.cas-badge-warn { background-color: rgba(229, 165, 10, 0.28); }
+.cas-badge-error { background-color: rgba(224, 27, 36, 0.28); }
+
+.cas-rows { spacing: 5px; padding-top: 2px; }
+.cas-row { spacing: 10px; }
+.cas-row-label { font-size: 0.8em; font-weight: 700; opacity: 0.6; min-width: 28px; }
+.cas-row-pct { font-size: 0.85em; font-weight: 700; font-feature-settings: "tnum"; min-width: 38px; text-align: right; }
+.cas-row-reset { font-size: 0.8em; opacity: 0.6; min-width: 66px; text-align: right; font-feature-settings: "tnum"; }
+.cas-row-pct.cas-warn { color: #e5a50a; }
+.cas-row-pct.cas-crit { color: #e01b24; }
+.cas-note { font-size: 0.8em; opacity: 0.7; }
+.cas-note-warn { color: #e5a50a; opacity: 1; }
+.cas-note-error { color: #e01b24; opacity: 1; }
+.cas-stale .cas-bar-fill { opacity: 0.45; }
+.cas-estimated { font-style: italic; }
+
+/* ---------- usage bar ---------- */
+.cas-bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background-color: rgba(127, 127, 127, 0.25);
+}
+.cas-bar-fill { height: 6px; border-radius: 3px; }
+.cas-bar-ok { background-color: #33d17a; }
+.cas-bar-warn { background-color: #f6d32d; }
+.cas-bar-crit { background-color: #e01b24; }
+.cas-bar-none { background-color: transparent; }
+
+/* ---------- banners ---------- */
+.cas-banners { spacing: 6px; padding: 0 8px 6px 8px; }
+.cas-banner { border-radius: 12px; padding: 8px 10px 8px 12px; spacing: 8px; }
+.cas-banner-warn { background-color: rgba(229, 165, 10, 0.18); }
+.cas-banner-error { background-color: rgba(224, 27, 36, 0.18); }
+.cas-banner-info { background-color: rgba(127, 127, 127, 0.14); }
+.cas-banner-text { font-size: 0.88em; }
+.cas-banner StIcon { icon-size: 16px; }
+.cas-banner-button {
+  font-size: 0.85em;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background-color: rgba(127, 127, 127, 0.22);
+}
+.cas-banner-button:hover { background-color: rgba(127, 127, 127, 0.34); }
+
+/* ---------- empty / login states ---------- */
+.cas-state { padding: 18px 20px; spacing: 10px; }
+.cas-state-icon { icon-size: 32px; opacity: 0.7; }
+.cas-state-title { font-weight: 800; font-size: 1.05em; text-align: center; }
+.cas-state-text { font-size: 0.9em; opacity: 0.75; text-align: center; }
+.cas-state-code {
+  font-family: monospace;
+  font-size: 0.85em;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: rgba(127, 127, 127, 0.16);
+}
+.cas-state-buttons { spacing: 8px; padding-top: 4px; }
+.cas-pill-button {
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 99px;
+  background-color: rgba(127, 127, 127, 0.2);
+}
+.cas-pill-button:hover { background-color: rgba(127, 127, 127, 0.32); }
+.cas-check { spacing: 8px; font-size: 0.9em; }
+
+/* ---------- footer ---------- */
+.cas-footer { padding: 4px 18px 2px 18px; }
+.cas-footer-text { font-size: 0.8em; opacity: 0.55; }

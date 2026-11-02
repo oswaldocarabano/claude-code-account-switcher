@@ -1,0 +1,600 @@
+# Hindi translation of Claude Code Account Switcher.
+msgid ""
+msgstr ""
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Could not read %s: %s"
+msgstr "%s पढ़ा नहीं जा सका: %s"
+
+msgid "Too many symbolic links: %s"
+msgstr "बहुत अधिक सिम्बॉलिक लिंक: %s"
+
+msgid "Tried to write an invalid number to JSON"
+msgstr "JSON में अमान्य संख्या लिखने का प्रयास हुआ"
+
+msgid "Could not write %s: %s"
+msgstr "%s लिखा नहीं जा सका: %s"
+
+msgid "Could not create %s"
+msgstr "%s बनाया नहीं जा सका"
+
+msgid "Could not move %s: %s"
+msgstr "%s ले जाया नहीं जा सका: %s"
+
+msgid "Could not create the lock %s: %s"
+msgstr "लॉक %s बनाया नहीं जा सका: %s"
+
+msgid "The lock %s is still held: Claude Code or another process is writing. Try again in a few seconds."
+msgstr "लॉक %s अभी भी व्यस्त है: Claude Code या कोई अन्य प्रक्रिया लिख रही है। कुछ सेकंड बाद फिर कोशिश करें।"
+
+msgid "registry.json is damaged; it is left untouched. Check it by hand."
+msgstr "registry.json खराब है; इसे बदला नहीं गया। इसे हाथ से जाँचें।"
+
+msgid "registry.json has an unknown version (%s)."
+msgstr "registry.json का संस्करण अज्ञात है (%s)।"
+
+msgid "No accounts yet. Use: claude-accounts add --current"
+msgstr "अभी कोई खाता नहीं है। उपयोग करें: claude-accounts add --current"
+
+msgid "Active account: %s"
+msgstr "सक्रिय खाता: %s"
+
+msgid "Not switched (%s)."
+msgstr "नहीं बदला गया (%s)।"
+
+msgid "warning"
+msgstr "चेतावनी"
+
+msgid "Name the account: claude-accounts switch <n|email|alias> or --best"
+msgstr "खाता बताएँ: claude-accounts switch <n|ईमेल|उपनाम> या --best"
+
+msgid "Open in your browser: %s"
+msgstr "अपने ब्राउज़र में खोलें: %s"
+
+msgid "Unknown command: %s. Use: claude-accounts help"
+msgstr "अज्ञात कमांड: %s। उपयोग करें: claude-accounts help"
+
+msgid "Claude Code is not signed in."
+msgstr "Claude Code में कोई सत्र साइन इन नहीं है।"
+
+msgid "The current Claude Code session has no tokens: sign in again."
+msgstr "वर्तमान Claude Code सत्र में टोकन नहीं हैं: फिर से साइन इन करें।"
+
+msgid "oauthAccount was not found in the Claude Code configuration."
+msgstr "Claude Code कॉन्फ़िगरेशन में oauthAccount नहीं मिला।"
+
+msgid "Claude Code (claude) was not found."
+msgstr "Claude Code (claude) नहीं मिला।"
+
+msgid "Could not start claude: %s"
+msgstr "claude शुरू नहीं हो सका: %s"
+
+msgid "Sign-in took too long."
+msgstr "साइन इन में बहुत समय लगा।"
+
+msgid "Sign-in cancelled."
+msgstr "साइन इन रद्द किया गया।"
+
+msgid "Claude Code did not complete the sign-in."
+msgstr "Claude Code ने साइन इन पूरा नहीं किया।"
+
+msgid "The sign-in did not leave a valid credential."
+msgstr "साइन इन के बाद कोई मान्य क्रेडेंशियल नहीं मिला।"
+
+msgid "The current session does not match its saved account; a backup was saved and no account was touched."
+msgstr "वर्तमान सत्र अपने सहेजे गए खाते से मेल नहीं खाता; बैकअप सहेजा गया और किसी खाते को छुआ नहीं गया।"
+
+msgid "The current session belongs to an account Claude Account Switcher does not know; a backup was saved."
+msgstr "वर्तमान सत्र ऐसे खाते का है जिसे Claude Account Switcher नहीं जानता; बैकअप सहेजा गया।"
+
+msgid "The latest copy of the active account could not be confirmed (offline); the previous one was backed up."
+msgstr "सक्रिय खाते की नवीनतम प्रति की पुष्टि नहीं हो सकी (ऑफ़लाइन); पिछली प्रति का बैकअप लिया गया।"
+
+msgid "Claude Code lost the session of the active account: sign in again."
+msgstr "Claude Code ने सक्रिय खाते का सत्र खो दिया: फिर से साइन इन करें।"
+
+msgid "There is no account “%s”."
+msgstr "खाता “%s” मौजूद नहीं है।"
+
+msgid "The active account cannot be removed. Switch to another one first."
+msgstr "सक्रिय खाता हटाया नहीं जा सकता। पहले किसी दूसरे खाते पर जाएँ।"
+
+msgid "An alias cannot be just a number."
+msgstr "उपनाम केवल एक संख्या नहीं हो सकता।"
+
+msgid "The alias “%s” is already in use."
+msgstr "उपनाम “%s” पहले से उपयोग में है।"
+
+msgid "The server rejected the OAuth client; the official CLI will be used to renew."
+msgstr "सर्वर ने OAuth क्लाइंट अस्वीकार कर दिया; नवीनीकरण के लिए आधिकारिक CLI का उपयोग होगा।"
+
+msgid "Account %d (%s) needs to sign in again."
+msgstr "खाता %d (%s) को फिर से साइन इन करना होगा।"
+
+msgid "The copy of account %d has no tokens."
+msgstr "खाता %d की प्रति में टोकन नहीं हैं।"
+
+msgid "Account %d has no saved oauthAccount."
+msgstr "खाता %d का oauthAccount सहेजा नहीं गया है।"
+
+msgid "Could not switch account; the previous state was restored (%s)."
+msgstr "खाता नहीं बदला जा सका; पिछली स्थिति बहाल की गई (%s)।"
+
+msgid "Could not switch account nor restore the previous state (%s). Backups are in stash/."
+msgstr "खाता नहीं बदला जा सका और पिछली स्थिति भी बहाल नहीं हुई (%s)। बैकअप stash/ में हैं।"
+
+msgid "Claude Code still reports another account. Check with /status."
+msgstr "Claude Code अभी भी दूसरा खाता दिखा रहा है। /status से जाँचें।"
+
+msgid "Claude Code keeps renewing its credentials; try again in a few seconds."
+msgstr "Claude Code लगातार क्रेडेंशियल नवीनीकृत कर रहा है; कुछ सेकंड बाद फिर कोशिश करें।"
+
+msgid "resets at %s"
+msgstr "%s पर रीसेट"
+
+msgid "%d percent"
+msgstr "%d प्रतिशत"
+
+msgid "no data"
+msgstr "कोई डेटा नहीं"
+
+msgid "reset"
+msgstr "रीसेट हुआ"
+
+msgid "5 h"
+msgstr "5 घं"
+
+msgid "7 d"
+msgstr "7 दि"
+
+msgid "ACTIVE"
+msgstr "सक्रिय"
+
+msgid "SIGN IN"
+msgstr "साइन इन"
+
+msgid "OUT OF ROTATION"
+msgstr "रोटेशन से बाहर"
+
+msgid "5-hour usage"
+msgstr "5 घंटे का उपयोग"
+
+msgid "7-day usage"
+msgstr "7 दिन का उपयोग"
+
+msgid "⚠ The session of this account expired: sign in again."
+msgstr "⚠ इस खाते का सत्र समाप्त हो गया: फिर से साइन इन करें।"
+
+msgid "Extra"
+msgstr "अतिरिक्त"
+
+msgid "Query limit reached; data from %s"
+msgstr "क्वेरी सीमा पूरी; डेटा %s का"
+
+msgid "Data from %s"
+msgstr "डेटा %s का"
+
+msgid "Usage not available right now"
+msgstr "उपयोग अभी उपलब्ध नहीं है"
+
+msgid "Usage not read yet"
+msgstr "उपयोग अभी पढ़ा नहीं गया"
+
+msgid "Session expires on %s"
+msgstr "सत्र %s को समाप्त होगा"
+
+msgid "Last copy not confirmed (a backup exists)"
+msgstr "अंतिम प्रति की पुष्टि नहीं हुई (बैकअप मौजूद है)"
+
+msgid "Sign in"
+msgstr "साइन इन करें"
+
+msgid "Renew"
+msgstr "नवीनीकृत करें"
+
+msgid "active"
+msgstr "सक्रिय"
+
+msgid "The Claude Account Switcher engine returned an unreadable answer."
+msgstr "Claude Account Switcher इंजन ने अपठनीय उत्तर दिया।"
+
+msgid "Incompatible engine version (schema %s)."
+msgstr "असंगत इंजन संस्करण (स्कीमा %s)।"
+
+msgid "Claude Account Switcher was disabled."
+msgstr "Claude Account Switcher निष्क्रिय किया गया।"
+
+msgid "Could not start gjs: %s"
+msgstr "gjs शुरू नहीं हो सका: %s"
+
+msgid "The Claude Account Switcher engine did not answer in time."
+msgstr "Claude Account Switcher इंजन ने समय पर उत्तर नहीं दिया।"
+
+msgid "Incompatible engine version."
+msgstr "असंगत इंजन संस्करण।"
+
+msgid "The sign-in did not finish."
+msgstr "साइन इन पूरा नहीं हुआ।"
+
+msgid "%d d %d h"
+msgstr "%d दि %d घं"
+
+msgid "%d h %d min"
+msgstr "%d घं %d मि"
+
+msgid "%d min"
+msgstr "%d मि"
+
+msgid "now"
+msgstr "अभी"
+
+msgid "never"
+msgstr "कभी नहीं"
+
+msgid "just now"
+msgstr "अभी-अभी"
+
+msgid "."
+msgstr "."
+
+msgid "Claude accounts"
+msgstr "Claude खाते"
+
+msgid "Refresh"
+msgstr "रीफ़्रेश करें"
+
+msgid "Switch to the one with most quota left"
+msgstr "सबसे अधिक बचे कोटा वाले खाते पर जाएँ"
+
+msgid "Add account"
+msgstr "खाता जोड़ें"
+
+msgid "Sign in with another account…"
+msgstr "दूसरे खाते से साइन इन करें…"
+
+msgid "Save the current session"
+msgstr "वर्तमान सत्र सहेजें"
+
+msgid "More"
+msgstr "और"
+
+msgid "Diagnostics"
+msgstr "निदान"
+
+msgid "Open backups folder"
+msgstr "बैकअप फ़ोल्डर खोलें"
+
+msgid "Could not open the folder"
+msgstr "फ़ोल्डर खोला नहीं जा सका"
+
+msgid "Preferences"
+msgstr "प्राथमिकताएँ"
+
+msgid "Claude Account Switcher diagnostics"
+msgstr "Claude Account Switcher निदान"
+
+msgid "Checks with problems: %s"
+msgstr "समस्या वाली जाँचें: %s"
+
+msgid "Everything looks fine."
+msgstr "सब ठीक है।"
+
+msgid "Claude account %s, 5-hour usage %s"
+msgstr "Claude खाता %s, 5 घंटे का उपयोग %s"
+
+msgid "Updating…"
+msgstr "अपडेट हो रहा है…"
+
+msgid "Updated %s"
+msgstr "%s अपडेट हुआ"
+
+msgid "Unknown error"
+msgstr "अज्ञात त्रुटि"
+
+msgid "Retry"
+msgstr "फिर कोशिश करें"
+
+msgid "Signed in as %s, not saved"
+msgstr "%s से साइन इन है, सहेजा नहीं गया"
+
+msgid "Save"
+msgstr "सहेजें"
+
+msgid "Claude Code lost the session of %s"
+msgstr "Claude Code ने %s का सत्र खो दिया"
+
+msgid "Sign in again"
+msgstr "फिर से साइन इन करें"
+
+msgid "The current session does not match its account; a backup was saved."
+msgstr "वर्तमान सत्र अपने खाते से मेल नहीं खाता; बैकअप सहेजा गया।"
+
+msgid "A Claude Code session is answering; it will use the new account on its next request."
+msgstr "एक Claude Code सत्र उत्तर दे रहा है; वह अपने अगले अनुरोध में नया खाता उपयोग करेगा।"
+
+msgid "Claude Account Switcher needs gjs"
+msgstr "Claude Account Switcher को gjs चाहिए"
+
+msgid "Install it with:"
+msgstr "इसे इंस्टॉल करें:"
+
+msgid "Copy command"
+msgstr "कमांड कॉपी करें"
+
+msgid "Save your current account to start"
+msgstr "शुरू करने के लिए अपना वर्तमान खाता सहेजें"
+
+msgid "Claude Code is signed in as %s."
+msgstr "Claude Code %s से साइन इन है।"
+
+msgid "Add another…"
+msgstr "दूसरा जोड़ें…"
+
+msgid "Sign in with your first account"
+msgstr "अपने पहले खाते से साइन इन करें"
+
+msgid "Your browser opens the official Claude sign-in page."
+msgstr "आपका ब्राउज़र Claude का आधिकारिक साइन-इन पेज खोलता है।"
+
+msgid "Sign in…"
+msgstr "साइन इन करें…"
+
+msgid "Could not add the account"
+msgstr "खाता नहीं जोड़ा जा सका"
+
+msgid "Try again"
+msgstr "फिर कोशिश करें"
+
+msgid "Close"
+msgstr "बंद करें"
+
+msgid "Renew %s"
+msgstr "%s नवीनीकृत करें"
+
+msgid "Your browser opened. Sign in with the account you want to add."
+msgstr "आपका ब्राउज़र खुल गया। जिस खाते को जोड़ना है उससे साइन इन करें।"
+
+msgid "Your current session does not change."
+msgstr "आपका वर्तमान सत्र नहीं बदलता।"
+
+msgid "Waiting…"
+msgstr "प्रतीक्षा…"
+
+msgid "Copy link"
+msgstr "लिंक कॉपी करें"
+
+msgid "Cancel"
+msgstr "रद्द करें"
+
+msgid "Use it as soon as it is added"
+msgstr "जुड़ते ही इसका उपयोग करें"
+
+msgid "Account switched (not confirmed)"
+msgstr "खाता बदला गया (पुष्टि नहीं)"
+
+msgid "Claude account: %s"
+msgstr "Claude खाता: %s"
+
+msgid "Your conversations stay open; the next request uses this account."
+msgstr "आपकी बातचीत खुली रहती हैं; अगला अनुरोध इस खाते का उपयोग करेगा।"
+
+msgid "Account not switched"
+msgstr "खाता नहीं बदला गया"
+
+msgid "No other account is available."
+msgstr "कोई दूसरा खाता उपलब्ध नहीं है।"
+
+msgid "Account saved"
+msgstr "खाता सहेजा गया"
+
+msgid "Could not save the account"
+msgstr "खाता सहेजा नहीं जा सका"
+
+msgid "Account renewed"
+msgstr "खाता नवीनीकृत हुआ"
+
+msgid "Resets at %s."
+msgstr "%s पर रीसेट होगा।"
+
+msgid "%s is at %d%%."
+msgstr "%s %d%% पर है।"
+
+msgid "%s at %d%% (5 h)"
+msgstr "%s %d%% पर (5 घं)"
+
+msgid "This account needs to sign in again."
+msgstr "इस खाते को फिर से साइन इन करना होगा।"
+
+msgid "Claude Code is renewing its credentials; try again in a few seconds."
+msgstr "Claude Code अपने क्रेडेंशियल नवीनीकृत कर रहा है; कुछ सेकंड बाद फिर कोशिश करें।"
+
+msgid "The Claude Account Switcher engine is not compatible with this extension."
+msgstr "Claude Account Switcher इंजन इस एक्सटेंशन के साथ संगत नहीं है।"
+
+msgid "General"
+msgstr "सामान्य"
+
+msgid "Claude Code"
+msgstr "Claude Code"
+
+msgid "Claude Account Switcher uses the official claude command to add and renew accounts."
+msgstr "Claude Account Switcher खाते जोड़ने और नवीनीकृत करने के लिए आधिकारिक claude कमांड का उपयोग करता है।"
+
+msgid "Path to claude (empty = automatic)"
+msgstr "claude का पथ (खाली = स्वचालित)"
+
+msgid "Detect"
+msgstr "पता लगाएँ"
+
+msgid "Status"
+msgstr "स्थिति"
+
+msgid "Checking…"
+msgstr "जाँच हो रही है…"
+
+msgid "✗ claude not found"
+msgstr "✗ claude नहीं मिला"
+
+msgid "Refresh interval"
+msgstr "रीफ़्रेश अंतराल"
+
+msgid "Seconds. The usage endpoint allows few requests per hour; 180 s is a safe value."
+msgstr "सेकंड। उपयोग सेवा प्रति घंटे कुछ ही अनुरोध स्वीकार करती है; 180 सेकंड सुरक्षित मान है।"
+
+msgid "How saved accounts renew their token"
+msgstr "सहेजे गए खाते अपना टोकन कैसे नवीनीकृत करते हैं"
+
+msgid "Official CLI (recommended)"
+msgstr "आधिकारिक CLI (अनुशंसित)"
+
+msgid "Token endpoint (no claude needed)"
+msgstr "टोकन एंडपॉइंट (claude की ज़रूरत नहीं)"
+
+msgid "Top bar"
+msgstr "शीर्ष पट्टी"
+
+msgid "Show"
+msgstr "दिखाएँ"
+
+msgid "Name and usage"
+msgstr "नाम और उपयोग"
+
+msgid "Usage only"
+msgstr "केवल उपयोग"
+
+msgid "Name only"
+msgstr "केवल नाम"
+
+msgid "Icon only"
+msgstr "केवल आइकन"
+
+msgid "7-day bar on the cards"
+msgstr "कार्ड पर 7 दिन की पट्टी"
+
+msgid "Notifications and colours"
+msgstr "सूचनाएँ और रंग"
+
+msgid "Notify every account switch"
+msgstr "हर खाता बदलने पर सूचित करें"
+
+msgid "Warn when 5-hour usage reaches"
+msgstr "जब 5 घंटे का उपयोग यहाँ पहुँचे तो चेतावनी दें"
+
+msgid "Percent. 0 = never."
+msgstr "प्रतिशत। 0 = कभी नहीं।"
+
+msgid "Amber from"
+msgstr "पीला इससे"
+
+msgid "Percent"
+msgstr "प्रतिशत"
+
+msgid "Red from"
+msgstr "लाल इससे"
+
+msgid "Use a newly added account right away"
+msgstr "नया जोड़ा गया खाता तुरंत उपयोग करें"
+
+msgid "Accounts"
+msgstr "खाते"
+
+msgid "Saved accounts"
+msgstr "सहेजे गए खाते"
+
+msgid "Removing an account moves its copy to the backups folder; nothing is deleted."
+msgstr "खाता हटाने पर उसकी प्रति बैकअप फ़ोल्डर में चली जाती है; कुछ भी मिटाया नहीं जाता।"
+
+msgid "Could not read the accounts"
+msgstr "खाते पढ़े नहीं जा सके"
+
+msgid "No accounts yet"
+msgstr "अभी कोई खाता नहीं है"
+
+msgid "Add one from the top bar menu."
+msgstr "शीर्ष पट्टी के मेनू से एक जोड़ें।"
+
+msgid "needs to sign in"
+msgstr "साइन इन करना होगा"
+
+msgid "out of rotation"
+msgstr "रोटेशन से बाहर"
+
+msgid "Alias"
+msgstr "उपनाम"
+
+msgid "Alias saved"
+msgstr "उपनाम सहेजा गया"
+
+msgid "In rotation"
+msgstr "रोटेशन में"
+
+msgid "Used by “switch to the one with most quota left”"
+msgstr "“सबसे अधिक बचे कोटा वाले खाते पर जाएँ” द्वारा उपयोग किया जाता है"
+
+msgid "Remove from Claude Account Switcher"
+msgstr "Claude Account Switcher से हटाएँ"
+
+msgid "Remove…"
+msgstr "हटाएँ…"
+
+msgid "Switch to another account first."
+msgstr "पहले किसी दूसरे खाते पर जाएँ।"
+
+msgid "Remove account?"
+msgstr "खाता हटाएँ?"
+
+msgid "%s will no longer appear in Claude Account Switcher. Its saved copy is moved to the backups folder, not deleted."
+msgstr "%s अब Claude Account Switcher में नहीं दिखेगा। इसकी प्रति बैकअप फ़ोल्डर में चली जाती है, मिटाई नहीं जाती।"
+
+msgid "Remove"
+msgstr "हटाएँ"
+
+msgid "Account removed"
+msgstr "खाता हटाया गया"
+
+msgid "About"
+msgstr "परिचय"
+
+msgid "Claude Code account switcher for the GNOME top bar. Your conversations stay open when you switch."
+msgstr "GNOME शीर्ष पट्टी के लिए Claude Code खाता स्विचर। बदलते समय आपकी बातचीत खुली रहती हैं।"
+
+msgid "Version"
+msgstr "संस्करण"
+
+msgid "Repository"
+msgstr "रिपॉज़िटरी"
+
+msgid "Credits"
+msgstr "आभार"
+
+msgid "Built on what claude-swap (Onur Cetinkol), CCSwitcher (XueshiQiao) and Claude Bar (Thanh Ngô) learned. All MIT licensed."
+msgstr "claude-swap (Onur Cetinkol), CCSwitcher (XueshiQiao) और Claude Bar (Thanh Ngô) के अनुभवों पर बना। सभी MIT लाइसेंस के अंतर्गत।"
+
+msgid "%d Claude Code session is answering; it will use the new account on its next request."
+msgid_plural "%d Claude Code sessions are answering; they will use the new account on their next request."
+msgstr[0] "%d Claude Code सत्र उत्तर दे रहा है; वह अपने अगले अनुरोध में नया खाता उपयोग करेगा।"
+msgstr[1] "%d Claude Code सत्र उत्तर दे रहे हैं; वे अपने अगले अनुरोध में नया खाता उपयोग करेंगे।"
+
+msgid "%d min ago"
+msgid_plural "%d min ago"
+msgstr[0] "%d मिनट पहले"
+msgstr[1] "%d मिनट पहले"
+
+msgid "%d h ago"
+msgid_plural "%d h ago"
+msgstr[0] "%d घंटे पहले"
+msgstr[1] "%d घंटे पहले"
+
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d दिन पहले"
+msgstr[1] "%d दिन पहले"
+
+msgid "%d account"
+msgid_plural "%d accounts"
+msgstr[0] "%d खाता"
+msgstr[1] "%d खाते"

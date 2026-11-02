@@ -1,0 +1,16 @@
+# Design notes and research scripts are kept outside the repository
+docs/
+spikes/
+
+# Sandboxes of the verification scripts: they hold credentials
+sbx-*/
+*.cas-tmp
+
+# Build output
+dist/
+extension/locale/
+extension/schemas/gschemas.compiled
+
+# Dev tooling
+node_modules/
+package-lock.json

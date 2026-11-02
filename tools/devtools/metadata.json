@@ -1,0 +1,6 @@
+{
+  "uuid": "cas-devtools@sandbox.test",
+  "name": "Claude Account Switcher devtools (sandbox only)",
+  "description": "Development tool: screenshots and enable/disable cycles of Claude Account Switcher in a nested session. Never installed in the real session.",
+  "shell-version": ["46"]
+}

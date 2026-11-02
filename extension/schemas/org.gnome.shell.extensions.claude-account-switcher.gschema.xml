@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="claude-account-switcher">
+  <enum id="org.gnome.shell.extensions.claude-account-switcher.IndicatorFormat">
+    <value nick="name-and-usage" value="0"/>
+    <value nick="usage" value="1"/>
+    <value nick="name" value="2"/>
+    <value nick="icon" value="3"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.claude-account-switcher.RefreshStrategy">
+    <value nick="delegate" value="0"/>
+    <value nick="direct" value="1"/>
+  </enum>
+  <schema id="org.gnome.shell.extensions.claude-account-switcher" path="/org/gnome/shell/extensions/claude-account-switcher/">
+    <key name="claude-path" type="s">
+      <default>''</default>
+      <summary>Path to claude</summary>
+      <description>Empty: ~/.local/bin/claude, then PATH.</description>
+    </key>
+    <key name="refresh-interval" type="u">
+      <range min="120" max="3600"/>
+      <default>180</default>
+      <summary>Seconds between refreshes (also the active account's usage interval)</summary>
+    </key>
+    <key name="refresh-strategy" enum="org.gnome.shell.extensions.claude-account-switcher.RefreshStrategy">
+      <default>'delegate'</default>
+      <summary>How saved accounts renew their token</summary>
+    </key>
+    <key name="indicator-format" enum="org.gnome.shell.extensions.claude-account-switcher.IndicatorFormat">
+      <default>'name-and-usage'</default>
+      <summary>What the top bar shows</summary>
+    </key>
+    <key name="warn-threshold" type="u">
+      <range min="0" max="100"/>
+      <default>80</default>
+      <summary>5-hour usage that triggers a notification (0 = never)</summary>
+    </key>
+    <key name="color-warn" type="u">
+      <range min="0" max="100"/>
+      <default>70</default>
+      <summary>Amber from this percentage</summary>
+    </key>
+    <key name="color-crit" type="u">
+      <range min="0" max="100"/>
+      <default>90</default>
+      <summary>Red from this percentage</summary>
+    </key>
+    <key name="notify-on-switch" type="b">
+      <default>true</default>
+      <summary>Notify every account switch</summary>
+    </key>
+    <key name="show-seven-day" type="b">
+      <default>true</default>
+      <summary>Show the 7-day bar on the cards</summary>
+    </key>
+    <key name="activate-after-login" type="b">
+      <default>true</default>
+      <summary>Use a newly added account right away</summary>
+    </key>
+    <key name="toggle-menu" type="as">
+      <default>[]</default>
+      <summary>Keyboard shortcut to open the panel (phase 4)</summary>
+    </key>
+  </schema>
+</schemalist>

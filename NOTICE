@@ -1,0 +1,14 @@
+Claude Code Account Switcher for GNOME
+Copyright (C) 2026 oswaldocarabano
+Licensed under the GNU General Public License, version 2 or (at your option)
+any later version. See LICENSE.
+
+This project contains no code copied from other projects. Its design builds on
+what these MIT-licensed projects learned about Claude Code's session handling:
+
+  - claude-swap  (c) 2026 Onur Cetinkol  https://github.com/realiti4/claude-swap
+  - CCSwitcher   (c) 2026 XueshiQiao     https://github.com/XueshiQiao/CCSwitcher
+  - Claude Bar   (c) 2026 Thanh Ngô      https://github.com/ncthanhngo/claude-bar
+
+Claude and Claude Code are products of Anthropic. This project is not
+affiliated with or endorsed by Anthropic.

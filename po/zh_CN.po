@@ -1,0 +1,595 @@
+# Simplified Chinese translation of Claude Code Account Switcher.
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Could not read %s: %s"
+msgstr "无法读取 %s：%s"
+
+msgid "Too many symbolic links: %s"
+msgstr "符号链接过多：%s"
+
+msgid "Tried to write an invalid number to JSON"
+msgstr "试图向 JSON 写入无效数字"
+
+msgid "Could not write %s: %s"
+msgstr "无法写入 %s：%s"
+
+msgid "Could not create %s"
+msgstr "无法创建 %s"
+
+msgid "Could not move %s: %s"
+msgstr "无法移动 %s：%s"
+
+msgid "Could not create the lock %s: %s"
+msgstr "无法创建锁 %s：%s"
+
+msgid "The lock %s is still held: Claude Code or another process is writing. Try again in a few seconds."
+msgstr "锁 %s 仍被占用：Claude Code 或其他进程正在写入。请几秒后重试。"
+
+msgid "registry.json is damaged; it is left untouched. Check it by hand."
+msgstr "registry.json 已损坏，未做修改。请手动检查。"
+
+msgid "registry.json has an unknown version (%s)."
+msgstr "registry.json 的版本未知（%s）。"
+
+msgid "No accounts yet. Use: claude-accounts add --current"
+msgstr "还没有账户。请使用：claude-accounts add --current"
+
+msgid "Active account: %s"
+msgstr "当前账户：%s"
+
+msgid "Not switched (%s)."
+msgstr "未切换（%s）。"
+
+msgid "warning"
+msgstr "警告"
+
+msgid "Name the account: claude-accounts switch <n|email|alias> or --best"
+msgstr "请指定账户：claude-accounts switch <编号|邮箱|别名> 或 --best"
+
+msgid "Open in your browser: %s"
+msgstr "请在浏览器中打开：%s"
+
+msgid "Unknown command: %s. Use: claude-accounts help"
+msgstr "未知命令：%s。请使用：claude-accounts help"
+
+msgid "Claude Code is not signed in."
+msgstr "Claude Code 未登录。"
+
+msgid "The current Claude Code session has no tokens: sign in again."
+msgstr "当前 Claude Code 会话没有令牌：请重新登录。"
+
+msgid "oauthAccount was not found in the Claude Code configuration."
+msgstr "在 Claude Code 配置中找不到 oauthAccount。"
+
+msgid "Claude Code (claude) was not found."
+msgstr "找不到 Claude Code（claude）。"
+
+msgid "Could not start claude: %s"
+msgstr "无法启动 claude：%s"
+
+msgid "Sign-in took too long."
+msgstr "登录耗时过长。"
+
+msgid "Sign-in cancelled."
+msgstr "登录已取消。"
+
+msgid "Claude Code did not complete the sign-in."
+msgstr "Claude Code 未完成登录。"
+
+msgid "The sign-in did not leave a valid credential."
+msgstr "登录后没有留下有效凭据。"
+
+msgid "The current session does not match its saved account; a backup was saved and no account was touched."
+msgstr "当前会话与其保存的账户不匹配；已保存备份，未改动任何账户。"
+
+msgid "The current session belongs to an account Claude Account Switcher does not know; a backup was saved."
+msgstr "当前会话属于 Claude Account Switcher 不认识的账户；已保存备份。"
+
+msgid "The latest copy of the active account could not be confirmed (offline); the previous one was backed up."
+msgstr "无法确认当前账户的最新副本（离线）；已备份上一份。"
+
+msgid "Claude Code lost the session of the active account: sign in again."
+msgstr "Claude Code 丢失了当前账户的会话：请重新登录。"
+
+msgid "There is no account “%s”."
+msgstr "账户“%s”不存在。"
+
+msgid "The active account cannot be removed. Switch to another one first."
+msgstr "无法移除当前账户。请先切换到其他账户。"
+
+msgid "An alias cannot be just a number."
+msgstr "别名不能只是数字。"
+
+msgid "The alias “%s” is already in use."
+msgstr "别名“%s”已被使用。"
+
+msgid "The server rejected the OAuth client; the official CLI will be used to renew."
+msgstr "服务器拒绝了 OAuth 客户端；将使用官方 CLI 续期。"
+
+msgid "Account %d (%s) needs to sign in again."
+msgstr "账户 %d（%s）需要重新登录。"
+
+msgid "The copy of account %d has no tokens."
+msgstr "账户 %d 的副本没有令牌。"
+
+msgid "Account %d has no saved oauthAccount."
+msgstr "账户 %d 没有保存的 oauthAccount。"
+
+msgid "Could not switch account; the previous state was restored (%s)."
+msgstr "无法切换账户；已恢复之前的状态（%s）。"
+
+msgid "Could not switch account nor restore the previous state (%s). Backups are in stash/."
+msgstr "无法切换账户，也无法恢复之前的状态（%s）。备份在 stash/ 中。"
+
+msgid "Claude Code still reports another account. Check with /status."
+msgstr "Claude Code 仍显示另一个账户。请用 /status 检查。"
+
+msgid "Claude Code keeps renewing its credentials; try again in a few seconds."
+msgstr "Claude Code 不断续期凭据；请几秒后重试。"
+
+msgid "resets at %s"
+msgstr "%s 重置"
+
+msgid "%d percent"
+msgstr "百分之 %d"
+
+msgid "no data"
+msgstr "无数据"
+
+msgid "reset"
+msgstr "已重置"
+
+msgid "5 h"
+msgstr "5 小时"
+
+msgid "7 d"
+msgstr "7 天"
+
+msgid "ACTIVE"
+msgstr "当前"
+
+msgid "SIGN IN"
+msgstr "登录"
+
+msgid "OUT OF ROTATION"
+msgstr "不参与轮换"
+
+msgid "5-hour usage"
+msgstr "5 小时用量"
+
+msgid "7-day usage"
+msgstr "7 天用量"
+
+msgid "⚠ The session of this account expired: sign in again."
+msgstr "⚠ 此账户的会话已过期：请重新登录。"
+
+msgid "Extra"
+msgstr "额外"
+
+msgid "Query limit reached; data from %s"
+msgstr "已达查询上限；数据来自 %s"
+
+msgid "Data from %s"
+msgstr "数据来自 %s"
+
+msgid "Usage not available right now"
+msgstr "暂时无法获取用量"
+
+msgid "Usage not read yet"
+msgstr "尚未读取用量"
+
+msgid "Session expires on %s"
+msgstr "会话将于 %s 过期"
+
+msgid "Last copy not confirmed (a backup exists)"
+msgstr "最新副本未确认（有备份）"
+
+msgid "Sign in"
+msgstr "登录"
+
+msgid "Renew"
+msgstr "续期"
+
+msgid "active"
+msgstr "当前"
+
+msgid "The Claude Account Switcher engine returned an unreadable answer."
+msgstr "Claude Account Switcher 引擎返回了无法读取的结果。"
+
+msgid "Incompatible engine version (schema %s)."
+msgstr "引擎版本不兼容（架构 %s）。"
+
+msgid "Claude Account Switcher was disabled."
+msgstr "Claude Account Switcher 已停用。"
+
+msgid "Could not start gjs: %s"
+msgstr "无法启动 gjs：%s"
+
+msgid "The Claude Account Switcher engine did not answer in time."
+msgstr "Claude Account Switcher 引擎未及时响应。"
+
+msgid "Incompatible engine version."
+msgstr "引擎版本不兼容。"
+
+msgid "The sign-in did not finish."
+msgstr "登录未完成。"
+
+msgid "%d d %d h"
+msgstr "%d 天 %d 小时"
+
+msgid "%d h %d min"
+msgstr "%d 小时 %d 分钟"
+
+msgid "%d min"
+msgstr "%d 分钟"
+
+msgid "now"
+msgstr "现在"
+
+msgid "never"
+msgstr "从未"
+
+msgid "just now"
+msgstr "刚刚"
+
+msgid "."
+msgstr "."
+
+msgid "Claude accounts"
+msgstr "Claude 账户"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Switch to the one with most quota left"
+msgstr "切换到剩余额度最多的账户"
+
+msgid "Add account"
+msgstr "添加账户"
+
+msgid "Sign in with another account…"
+msgstr "用另一个账户登录…"
+
+msgid "Save the current session"
+msgstr "保存当前会话"
+
+msgid "More"
+msgstr "更多"
+
+msgid "Diagnostics"
+msgstr "诊断"
+
+msgid "Open backups folder"
+msgstr "打开备份文件夹"
+
+msgid "Could not open the folder"
+msgstr "无法打开文件夹"
+
+msgid "Preferences"
+msgstr "首选项"
+
+msgid "Claude Account Switcher diagnostics"
+msgstr "Claude Account Switcher 诊断"
+
+msgid "Checks with problems: %s"
+msgstr "有问题的检查项：%s"
+
+msgid "Everything looks fine."
+msgstr "一切正常。"
+
+msgid "Claude account %s, 5-hour usage %s"
+msgstr "Claude 账户 %s，5 小时用量 %s"
+
+msgid "Updating…"
+msgstr "正在更新…"
+
+msgid "Updated %s"
+msgstr "更新于 %s"
+
+msgid "Unknown error"
+msgstr "未知错误"
+
+msgid "Retry"
+msgstr "重试"
+
+msgid "Signed in as %s, not saved"
+msgstr "已用 %s 登录，未保存"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Claude Code lost the session of %s"
+msgstr "Claude Code 丢失了 %s 的会话"
+
+msgid "Sign in again"
+msgstr "重新登录"
+
+msgid "The current session does not match its account; a backup was saved."
+msgstr "当前会话与其账户不匹配；已保存备份。"
+
+msgid "A Claude Code session is answering; it will use the new account on its next request."
+msgstr "有 Claude Code 会话正在回复；它的下一个请求将使用新账户。"
+
+msgid "Claude Account Switcher needs gjs"
+msgstr "Claude Account Switcher 需要 gjs"
+
+msgid "Install it with:"
+msgstr "安装方法："
+
+msgid "Copy command"
+msgstr "复制命令"
+
+msgid "Save your current account to start"
+msgstr "保存当前账户以开始"
+
+msgid "Claude Code is signed in as %s."
+msgstr "Claude Code 已用 %s 登录。"
+
+msgid "Add another…"
+msgstr "添加其他账户…"
+
+msgid "Sign in with your first account"
+msgstr "用你的第一个账户登录"
+
+msgid "Your browser opens the official Claude sign-in page."
+msgstr "浏览器会打开 Claude 官方登录页面。"
+
+msgid "Sign in…"
+msgstr "登录…"
+
+msgid "Could not add the account"
+msgstr "无法添加账户"
+
+msgid "Try again"
+msgstr "重试"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Renew %s"
+msgstr "续期 %s"
+
+msgid "Your browser opened. Sign in with the account you want to add."
+msgstr "浏览器已打开。请用要添加的账户登录。"
+
+msgid "Your current session does not change."
+msgstr "你当前的会话不会改变。"
+
+msgid "Waiting…"
+msgstr "等待中…"
+
+msgid "Copy link"
+msgstr "复制链接"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Use it as soon as it is added"
+msgstr "添加后立即使用"
+
+msgid "Account switched (not confirmed)"
+msgstr "已切换账户（未确认）"
+
+msgid "Claude account: %s"
+msgstr "Claude 账户：%s"
+
+msgid "Your conversations stay open; the next request uses this account."
+msgstr "你的对话保持打开；下一个请求将使用此账户。"
+
+msgid "Account not switched"
+msgstr "未切换账户"
+
+msgid "No other account is available."
+msgstr "没有其他可用账户。"
+
+msgid "Account saved"
+msgstr "账户已保存"
+
+msgid "Could not save the account"
+msgstr "无法保存账户"
+
+msgid "Account renewed"
+msgstr "账户已续期"
+
+msgid "Resets at %s."
+msgstr "%s 重置。"
+
+msgid "%s is at %d%%."
+msgstr "%s 已用 %d%%。"
+
+msgid "%s at %d%% (5 h)"
+msgstr "%s 已用 %d%%（5 小时）"
+
+msgid "This account needs to sign in again."
+msgstr "此账户需要重新登录。"
+
+msgid "Claude Code is renewing its credentials; try again in a few seconds."
+msgstr "Claude Code 正在续期凭据；请几秒后重试。"
+
+msgid "The Claude Account Switcher engine is not compatible with this extension."
+msgstr "Claude Account Switcher 引擎与此扩展不兼容。"
+
+msgid "General"
+msgstr "常规"
+
+msgid "Claude Code"
+msgstr "Claude Code"
+
+msgid "Claude Account Switcher uses the official claude command to add and renew accounts."
+msgstr "Claude Account Switcher 使用官方 claude 命令添加和续期账户。"
+
+msgid "Path to claude (empty = automatic)"
+msgstr "claude 路径（留空 = 自动）"
+
+msgid "Detect"
+msgstr "检测"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Checking…"
+msgstr "正在检查…"
+
+msgid "✗ claude not found"
+msgstr "✗ 找不到 claude"
+
+msgid "Refresh interval"
+msgstr "刷新间隔"
+
+msgid "Seconds. The usage endpoint allows few requests per hour; 180 s is a safe value."
+msgstr "秒。用量接口每小时只允许少量请求；180 秒是安全值。"
+
+msgid "How saved accounts renew their token"
+msgstr "已保存账户如何续期令牌"
+
+msgid "Official CLI (recommended)"
+msgstr "官方 CLI（推荐）"
+
+msgid "Token endpoint (no claude needed)"
+msgstr "令牌接口（无需 claude）"
+
+msgid "Top bar"
+msgstr "顶栏"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "Name and usage"
+msgstr "名称和用量"
+
+msgid "Usage only"
+msgstr "仅用量"
+
+msgid "Name only"
+msgstr "仅名称"
+
+msgid "Icon only"
+msgstr "仅图标"
+
+msgid "7-day bar on the cards"
+msgstr "卡片中的 7 天进度条"
+
+msgid "Notifications and colours"
+msgstr "通知和颜色"
+
+msgid "Notify every account switch"
+msgstr "每次切换账户时通知"
+
+msgid "Warn when 5-hour usage reaches"
+msgstr "5 小时用量达到时提醒"
+
+msgid "Percent. 0 = never."
+msgstr "百分比。0 = 从不。"
+
+msgid "Amber from"
+msgstr "琥珀色起始"
+
+msgid "Percent"
+msgstr "百分比"
+
+msgid "Red from"
+msgstr "红色起始"
+
+msgid "Use a newly added account right away"
+msgstr "立即使用新添加的账户"
+
+msgid "Accounts"
+msgstr "账户"
+
+msgid "Saved accounts"
+msgstr "已保存的账户"
+
+msgid "Removing an account moves its copy to the backups folder; nothing is deleted."
+msgstr "移除账户会将其副本移到备份文件夹；不会删除任何内容。"
+
+msgid "Could not read the accounts"
+msgstr "无法读取账户"
+
+msgid "No accounts yet"
+msgstr "还没有账户"
+
+msgid "Add one from the top bar menu."
+msgstr "请从顶栏菜单添加。"
+
+msgid "needs to sign in"
+msgstr "需要登录"
+
+msgid "out of rotation"
+msgstr "不参与轮换"
+
+msgid "Alias"
+msgstr "别名"
+
+msgid "Alias saved"
+msgstr "别名已保存"
+
+msgid "In rotation"
+msgstr "参与轮换"
+
+msgid "Used by “switch to the one with most quota left”"
+msgstr "用于“切换到剩余额度最多的账户”"
+
+msgid "Remove from Claude Account Switcher"
+msgstr "从 Claude Account Switcher 移除"
+
+msgid "Remove…"
+msgstr "移除…"
+
+msgid "Switch to another account first."
+msgstr "请先切换到其他账户。"
+
+msgid "Remove account?"
+msgstr "移除账户？"
+
+msgid "%s will no longer appear in Claude Account Switcher. Its saved copy is moved to the backups folder, not deleted."
+msgstr "%s 将不再出现在 Claude Account Switcher 中。其副本会移到备份文件夹，不会删除。"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Account removed"
+msgstr "账户已移除"
+
+msgid "About"
+msgstr "关于"
+
+msgid "Claude Code account switcher for the GNOME top bar. Your conversations stay open when you switch."
+msgstr "用于 GNOME 顶栏的 Claude Code 账户切换器。切换时对话保持打开。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Repository"
+msgstr "代码仓库"
+
+msgid "Credits"
+msgstr "致谢"
+
+msgid "Built on what claude-swap (Onur Cetinkol), CCSwitcher (XueshiQiao) and Claude Bar (Thanh Ngô) learned. All MIT licensed."
+msgstr "基于 claude-swap（Onur Cetinkol）、CCSwitcher（XueshiQiao）和 Claude Bar（Thanh Ngô）的经验构建，均为 MIT 许可。"
+
+msgid "%d Claude Code session is answering; it will use the new account on its next request."
+msgid_plural "%d Claude Code sessions are answering; they will use the new account on their next request."
+msgstr[0] "有 %d 个 Claude Code 会话正在回复；它们的下一个请求将使用新账户。"
+
+msgid "%d min ago"
+msgid_plural "%d min ago"
+msgstr[0] "%d 分钟前"
+
+msgid "%d h ago"
+msgid_plural "%d h ago"
+msgstr[0] "%d 小时前"
+
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 天前"
+
+msgid "%d account"
+msgid_plural "%d accounts"
+msgstr[0] "%d 个账户"
