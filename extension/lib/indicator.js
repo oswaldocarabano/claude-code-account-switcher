@@ -7,7 +7,8 @@ import St from 'gi://St';
 import Clutter from 'gi://Clutter';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
-import * as Animation from 'resource:///org/gnome/shell/ui/animation.js';
+import {Spinner} from './spinner.js';
+import {vbox} from './vbox.js';
 import {gettext as _, ngettext} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {AccountCard} from './accountCard.js';
 import {
@@ -78,7 +79,12 @@ class Indicator extends PanelMenu.Button {
             vscrollbar_policy: St.PolicyType.AUTOMATIC,
             overlay_scrollbars: true,
         });
-        this._scroll.set_child(this._cardsSection.actor);
+        // GNOME 45: St.ScrollView is an St.Bin and only wires its scroll
+        // adjustments for children added through add_actor().
+        if (this._scroll.add_actor)
+            this._scroll.add_actor(this._cardsSection.actor);
+        else
+            this._scroll.set_child(this._cardsSection.actor);
         this._cardsHolder = new PopupMenu.PopupMenuSection();
         this._cardsHolder.actor.add_child(this._scroll);
         this.menu.addMenuItem(this._cardsHolder);
@@ -99,7 +105,8 @@ class Indicator extends PanelMenu.Button {
         })]);
         for (const key of ['indicator-format', 'color-warn', 'color-crit', 'show-seven-day'])
             this._ids.push([settings, settings.connect(`changed::${key}`, () => this._sync(true))]);
-        this._ids.push([this._ifaceSettings, this._ifaceSettings.connect('changed::gtk-theme', () => this._sync(true))]);
+        for (const key of ['gtk-theme', 'accent-color'])
+            this._ids.push([this._ifaceSettings, this._ifaceSettings.connect(`changed::${key}`, () => this._sync(true))]);
         this._sync(true);
     }
 
@@ -107,13 +114,13 @@ class Indicator extends PanelMenu.Button {
 
     _buildHeader() {
         const row = new St.BoxLayout({style_class: 'cas-header', x_expand: true});
-        const titles = new St.BoxLayout({vertical: true, x_expand: true, y_align: Clutter.ActorAlign.CENTER});
+        const titles = vbox({x_expand: true, y_align: Clutter.ActorAlign.CENTER});
         titles.add_child(new St.Label({text: _('Claude accounts'), style_class: 'cas-header-title'}));
         this._headerSub = new St.Label({style_class: 'cas-header-sub'});
         titles.add_child(this._headerSub);
         row.add_child(titles);
 
-        this._refreshSpinner = new Animation.Spinner(16, {animate: true, hideOnStop: true});
+        this._refreshSpinner = new Spinner(16, {hideOnStop: true});
         row.add_child(this._refreshSpinner);
         this._refreshButton = new St.Button({
             style_class: 'button cas-icon-button',
@@ -180,7 +187,9 @@ class Indicator extends PanelMenu.Button {
     // ------------------------------------------------------------ sync
 
     get _accent() {
-        return accentFor(this._ifaceSettings.get_string('gtk-theme'));
+        const s = this._ifaceSettings;
+        const system = s.settings_schema.has_key('accent-color') ? s.get_string('accent-color') : null;
+        return accentFor(s.get_string('gtk-theme'), system);
     }
 
     _sync(force = false) {
@@ -299,8 +308,8 @@ class Indicator extends PanelMenu.Button {
                     _('Claude Account Switcher needs gjs'), _('Install it with:'), INSTALL_HINT,
                     [[_('Copy command'), () => St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, INSTALL_HINT)]])));
             } else {
-                const box = new St.BoxLayout({vertical: true, style_class: 'cas-state', x_expand: true});
-                const sp = new Animation.Spinner(24, {animate: true});
+                const box = vbox({style_class: 'cas-state', x_expand: true});
+                const sp = new Spinner(24);
                 sp.x_align = Clutter.ActorAlign.CENTER;
                 box.add_child(sp);
                 sp.play();
@@ -363,7 +372,7 @@ class Indicator extends PanelMenu.Button {
     }
 
     _stateView(icon, title, text, code, buttons) {
-        const box = new St.BoxLayout({vertical: true, style_class: 'cas-state', x_expand: true});
+        const box = vbox({style_class: 'cas-state', x_expand: true});
         box.add_child(new St.Icon({icon_name: icon, style_class: 'cas-state-icon', x_align: Clutter.ActorAlign.CENTER}));
         box.add_child(label(title, 'cas-state-title', {x_align: Clutter.ActorAlign.CENTER}));
         if (text)
@@ -385,7 +394,7 @@ class Indicator extends PanelMenu.Button {
             return this._stateView('dialog-error-symbolic', _('Could not add the account'), login.message, null,
                 [[_('Try again'), () => this._startLogin()], [_('Close'), () => s.dismissLoginError()]]);
         }
-        const box = new St.BoxLayout({vertical: true, style_class: 'cas-state', x_expand: true});
+        const box = vbox({style_class: 'cas-state', x_expand: true});
         box.add_child(new St.Icon({icon_name: 'web-browser-symbolic', style_class: 'cas-state-icon', x_align: Clutter.ActorAlign.CENTER}));
         box.add_child(label(login.forAccount ? fmt(_('Renew %s'), login.forAccount.email) : _('Add account'),
             'cas-state-title', {x_align: Clutter.ActorAlign.CENTER}));
@@ -395,7 +404,7 @@ class Indicator extends PanelMenu.Button {
             'cas-state-text', {x_align: Clutter.ActorAlign.CENTER}));
 
         const waiting = new St.BoxLayout({style_class: 'cas-state-buttons', x_align: Clutter.ActorAlign.CENTER});
-        const sp = new Animation.Spinner(16, {animate: true});
+        const sp = new Spinner(16);
         sp.play();
         waiting.add_child(sp);
         waiting.add_child(new St.Label({text: _('Waiting…'), y_align: Clutter.ActorAlign.CENTER}));
@@ -435,6 +444,11 @@ class Indicator extends PanelMenu.Button {
         this._ids = [];
         this._icon.remove_all_transitions();
         this._cards.clear();
+        // The cards section lives inside the scroll view, outside the menu tree:
+        // detach and destroy it first (GNOME 45's St.ScrollView is an St.Bin and
+        // asserts that its child is gone before it is destroyed).
+        this._scroll.set_child(null);
+        this._cardsSection.destroy();
         this._ifaceSettings = null;
         super.destroy();
     }

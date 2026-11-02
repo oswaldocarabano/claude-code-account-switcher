@@ -81,7 +81,9 @@
 .cas-row { spacing: 10px; }
 .cas-row-label { font-size: 0.8em; font-weight: 700; opacity: 0.6; min-width: 28px; }
 .cas-row-pct { font-size: 0.85em; font-weight: 700; font-feature-settings: "tnum"; min-width: 38px; text-align: right; }
-.cas-row-reset { font-size: 0.8em; opacity: 0.6; min-width: 66px; text-align: right; font-feature-settings: "tnum"; }
+.cas-row-reset { font-size: 0.8em; opacity: 0.6; text-align: right; font-feature-settings: "tnum"; }
+.cas-row-reset-box { spacing: 4px; min-width: 70px; }
+.cas-row-reset-icon { icon-size: 10px; opacity: 0.55; }
 .cas-row-pct.cas-warn { color: #e5a50a; }
 .cas-row-pct.cas-crit { color: #e01b24; }
 .cas-note { font-size: 0.8em; opacity: 0.7; }

@@ -166,8 +166,8 @@ msgstr "Uso de 5 horas"
 msgid "7-day usage"
 msgstr "Uso de 7 días"
 
-msgid "⚠ The session of this account expired: sign in again."
-msgstr "⚠ La sesión de esta cuenta caducó: inicia sesión otra vez."
+msgid "The session of this account expired: sign in again."
+msgstr "La sesión de esta cuenta caducó: inicia sesión otra vez."
 
 msgid "Extra"
 msgstr "Extra"

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — 2026-11-01
+
+- Supports GNOME Shell 45, 46, 47, 48, 49, 50 and 51 (was 46 only). Every version is tested in a container: engine tests, 20 enable/disable cycles and screenshots (`just compat`).
+- Follows the GNOME 47+ system accent colour.
+- Own spinner and icons instead of Shell internals and glyphs that some fonts lack.
+- The installer refuses GNOME Shell 44 and older with a clear message.
+
 ## 0.1.0 — 2026-11-01
 
 First release.

@@ -246,7 +246,7 @@ export default class ClaudeAccountSwitcherPreferences extends ExtensionPreferenc
         // ---------------- About
         const about = new Adw.PreferencesPage({name: 'about', title: _('About'), icon_name: 'help-about-symbolic'});
         const info = new Adw.PreferencesGroup({title: 'Claude Account Switcher', description: _('Claude Code account switcher for the GNOME top bar. Your conversations stay open when you switch.')});
-        info.add(new Adw.ActionRow({title: _('Version'), subtitle: this.metadata['version-name'] ?? '0.1.0'}));
+        info.add(new Adw.ActionRow({title: _('Version'), subtitle: this.metadata['version-name'] ?? '0.2.0'}));
         const link = new Adw.ActionRow({title: _('Repository'), subtitle: REPO_URL, activatable: true});
         link.connect('activated', () => Gio.AppInfo.launch_default_for_uri(REPO_URL, null));
         info.add(link);

@@ -57,5 +57,7 @@ test('money, accent colours', () => {
     assert.equal(moneyText({used: 12.3, limit: 50, currency: 'USD'}), '12.30 / 50.00 USD');
     assert.equal(accentFor('Yaru-blue-dark'), '#0073E5');
     assert.equal(accentFor('Adwaita'), '#3584E4');
+    assert.equal(accentFor('Adwaita', 'purple'), '#9141AC', 'GNOME 47+ accent-color');
+    assert.equal(accentFor('Yaru-blue', 'purple'), '#0073E5', 'Ubuntu keeps its Yaru accent');
     assert.equal(rgba('#E95420', 0.12), 'rgba(233,84,32,0.12)');
 });

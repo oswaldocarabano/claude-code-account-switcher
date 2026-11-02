@@ -141,8 +141,19 @@ const YARU_ACCENTS = {
     'Yaru-purple': '#7764D8', 'Yaru-magenta': '#B34CB3', 'Yaru-red': '#DA3450',
 };
 
-/** Accent colour of the desktop (Ubuntu's Yaru variants; Adwaita blue otherwise). */
-export function accentFor(gtkTheme) {
+/** GNOME 47+ system accent colours (org.gnome.desktop.interface accent-color). */
+const SYSTEM_ACCENTS = {
+    blue: '#3584E4', teal: '#2190A4', green: '#3A944A', yellow: '#C88800', orange: '#ED5B00',
+    red: '#E62D42', pink: '#D56199', purple: '#9141AC', slate: '#6F8396',
+};
+
+/**
+ * Accent colour of the desktop: the GNOME 47+ accent-color setting when set,
+ * else Ubuntu's Yaru variant, else Adwaita blue.
+ */
+export function accentFor(gtkTheme, systemAccent = null) {
+    if (systemAccent && SYSTEM_ACCENTS[systemAccent] && !String(gtkTheme ?? '').startsWith('Yaru'))
+        return SYSTEM_ACCENTS[systemAccent];
     const base = String(gtkTheme ?? '').replace(/-dark$/, '');
     return YARU_ACCENTS[base] ?? '#3584E4';
 }

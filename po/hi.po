@@ -166,8 +166,8 @@ msgstr "5 घंटे का उपयोग"
 msgid "7-day usage"
 msgstr "7 दिन का उपयोग"
 
-msgid "⚠ The session of this account expired: sign in again."
-msgstr "⚠ इस खाते का सत्र समाप्त हो गया: फिर से साइन इन करें।"
+msgid "The session of this account expired: sign in again."
+msgstr "इस खाते का सत्र समाप्त हो गया: फिर से साइन इन करें।"
 
 msgid "Extra"
 msgstr "अतिरिक्त"

@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/oswaldocarabano/claude-code-account-switcher/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/oswaldocarabano/claude-code-account-switcher?label=release"></a>
-  <img alt="GNOME Shell 46" src="https://img.shields.io/badge/GNOME%20Shell-46-4a86cf?logo=gnome&logoColor=white">
+  <img alt="GNOME Shell 45–51" src="https://img.shields.io/badge/GNOME%20Shell-45%E2%80%9351-4a86cf?logo=gnome&logoColor=white">
   <img alt="Ubuntu 24.04" src="https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white">
   <a href="LICENSE"><img alt="License: GPL-2.0-or-later" src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue"></a>
   <img alt="Languages" src="https://img.shields.io/badge/i18n-en%20%C2%B7%20es%20%C2%B7%20fr%20%C2%B7%20zh__CN%20%C2%B7%20hi-555">
@@ -43,11 +43,13 @@
 | **Preferences** (libadwaita) | **Accounts page** — alias, rotation, remove |
 | <img src="assets/screenshots/prefs-general.png" alt="Preferences" width="380"> | <img src="assets/screenshots/prefs-accounts.png" alt="Accounts preferences" width="380"> |
 
-<sub>Real GNOME Shell 46 screenshots from a sandbox session with example accounts.</sub>
+<sub>Real GNOME Shell screenshots from a sandbox session with example accounts.</sub>
 
 ## Install
 
-**Requirements:** GNOME Shell 46 (Ubuntu 24.04) and [Claude Code](https://docs.anthropic.com/en/docs/claude-code). `gjs` and `gir1.2-soup-3.0` ship with Ubuntu's desktop.
+**Requirements:** GNOME Shell 45 to 51 and [Claude Code](https://docs.anthropic.com/en/docs/claude-code). `gjs` and libsoup 3 ship with every GNOME desktop.
+
+Tested on every GNOME Shell release from 45 to 51 (see [Compatibility](#compatibility)): Ubuntu 23.10 – 26.04+, Fedora 39 – 45, Debian 13, Arch, openSUSE Tumbleweed, Zorin OS, Manjaro and other distros with one of those versions. GNOME 44 and older use a different extension format and are not supported.
 
 ### One command
 
@@ -148,6 +150,22 @@ Add `--json` for machine-readable output (`schemaVersion: 1`).
 
 **Is this affiliated with Anthropic?** No. Claude and Claude Code are Anthropic products; this is an independent open-source tool. Make sure your use of several accounts complies with Anthropic's terms.
 
+## Compatibility
+
+Each GNOME Shell release is tested for real in a container: the full engine test suite, the extension loaded in a headless GNOME Shell, 20 enable/disable cycles with no errors, and screenshots of the menu.
+
+| GNOME Shell | Tested on | Example distros |
+|---|---|---|
+| 45 | Fedora 39 | Ubuntu 23.10 |
+| 46 | Fedora 40 | Ubuntu 24.04 LTS, Zorin OS 18 |
+| 47 | Fedora 41 | Ubuntu 24.10 |
+| 48 | Fedora 42 | Ubuntu 25.04, Debian 13 |
+| 49 | Fedora 43 | Ubuntu 25.10 |
+| 50 | Fedora 44 | Ubuntu 26.04 LTS |
+| 51 | Fedora 45 | Arch, openSUSE Tumbleweed (rolling) |
+
+Run the matrix yourself with `just compat` (needs Docker).
+
 ## Development
 
 ```bash
@@ -156,6 +174,7 @@ just test            # 74 tests: unit, end-to-end in a sandboxed HOME, a 1,000-r
 just lint            # eslint with GNOME Shell's rules
 just nested-sandbox  # a nested GNOME Shell with fake accounts (your real ~/.claude and settings are never touched)
 just screenshots     # regenerate assets/screenshots
+just compat          # test on GNOME Shell 45–51 in Docker containers
 just pack            # build dist/claude-account-switcher@oswaldocarabano.github.io.shell-extension.zip
 ```
 

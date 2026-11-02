@@ -6,6 +6,10 @@ import Gio from 'gi://Gio';
 import {Extension, gettext as _, ngettext} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+
+/** GNOME 46 changed the MessageTray.Source/Notification constructors. */
+const SHELL_MAJOR = parseInt(Config.PACKAGE_VERSION, 10);
 import {EngineClient} from './lib/engineClient.js';
 import {Store} from './lib/store.js';
 import {Indicator} from './lib/indicator.js';
@@ -49,6 +53,10 @@ export default class ClaudeAccountSwitcherExtension extends Extension {
     }
 
     _notify({title, body, kind}) {
+        if (SHELL_MAJOR < 46) {
+            Main.notify(redact(title, 120), redact(body ?? '', 300));
+            return;
+        }
         try {
             const source = this._getSource();
             const n = new MessageTray.Notification({

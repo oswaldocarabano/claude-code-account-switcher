@@ -79,3 +79,7 @@ logs:
 pack: build
     mkdir -p {{repo}}/dist
     {{repo}}/tools/pack.sh {{repo}} {{uuid}}
+
+# Test on GNOME Shell 45–51 in Docker (Fedora 39–45); results in /tmp/cas-compat
+compat *releases:
+    {{repo}}/tools/compat/run-matrix.sh {{releases}}

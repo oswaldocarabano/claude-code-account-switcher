@@ -1,7 +1,6 @@
 // `claude-accounts add --current` and `claude-accounts add --login`.
 
 import GLib from 'gi://GLib';
-import GLibUnix from 'gi://GLibUnix';
 import Gio from 'gi://Gio';
 import {readLive} from '../adapters/claudeFiles.js';
 import {withLocks} from '../adapters/lock.js';
@@ -76,9 +75,13 @@ function writeBrowserScript(dir) {
     return script;
 }
 
-/** SIGTERM handler (GLibUnix, GLib >= 2.80). */
+/** SIGTERM handler: GLibUnix on GLib >= 2.80, GLib.unix_signal_add before. */
 function onSigterm(cb) {
-    return GLibUnix.signal_add_full(GLib.PRIORITY_HIGH, 15, cb);
+    try {
+        return imports.gi.GLibUnix.signal_add_full(GLib.PRIORITY_HIGH, 15, cb);
+    } catch {
+        return GLib.unix_signal_add(GLib.PRIORITY_HIGH, 15, cb);
+    }
 }
 
 /**

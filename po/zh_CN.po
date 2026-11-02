@@ -166,8 +166,8 @@ msgstr "5 小时用量"
 msgid "7-day usage"
 msgstr "7 天用量"
 
-msgid "⚠ The session of this account expired: sign in again."
-msgstr "⚠ 此账户的会话已过期：请重新登录。"
+msgid "The session of this account expired: sign in again."
+msgstr "此账户的会话已过期：请重新登录。"
 
 msgid "Extra"
 msgstr "额外"

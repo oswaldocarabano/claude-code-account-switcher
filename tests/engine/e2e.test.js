@@ -24,7 +24,7 @@ suite('cli');
 test('json envelope, version and unknown command', () => {
     const sb = new Sandbox(getApi());
     const v = sb.run(['--version']);
-    assert.equal(v.json.version, '0.1.0');
+    assert.equal(v.json.version, '0.2.0');
     const bad = sb.run(['frobnicate']);
     assert.equal(bad.status, 1);
     assert.equal(bad.json.schemaVersion, 1);

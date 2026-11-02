@@ -162,7 +162,7 @@ msgstr ""
 msgid "7-day usage"
 msgstr ""
 
-msgid "⚠ The session of this account expired: sign in again."
+msgid "The session of this account expired: sign in again."
 msgstr ""
 
 msgid "Extra"

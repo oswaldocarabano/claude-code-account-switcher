@@ -47,8 +47,12 @@ fi
 command -v gnome-extensions >/dev/null 2>&1 || die "gnome-extensions not found: this needs GNOME Shell."
 command -v gjs >/dev/null 2>&1 || die "gjs not found. Install it with: sudo apt install gjs"
 shell_version=$(gnome-shell --version 2>/dev/null | sed -n 's/.* \([0-9][0-9]*\)\..*/\1/p')
-if [ "${shell_version:-0}" != 46 ]; then
-    warn "tested on GNOME Shell 46; you have ${shell_version:-unknown}. It may not load."
+if [ -z "${shell_version:-}" ]; then
+    warn "could not detect the GNOME Shell version; this extension needs GNOME Shell 45 to 51."
+elif [ "$shell_version" -lt 45 ]; then
+    die "GNOME Shell $shell_version is too old: this extension needs GNOME Shell 45 or newer."
+elif [ "$shell_version" -gt 51 ]; then
+    warn "tested on GNOME Shell 45 to 51; you have $shell_version. It may not load until a new release declares it."
 fi
 gjs -c "imports.gi.versions.Soup = '3.0'; imports.gi.Soup" >/dev/null 2>&1 \
     || die "libsoup 3 GI bindings missing. Install them with: sudo apt install gir1.2-soup-3.0"

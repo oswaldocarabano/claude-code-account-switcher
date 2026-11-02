@@ -5,7 +5,8 @@ import GObject from 'gi://GObject';
 import St from 'gi://St';
 import Clutter from 'gi://Clutter';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
-import * as Animation from 'resource:///org/gnome/shell/ui/animation.js';
+import {Spinner} from './spinner.js';
+import {vbox} from './vbox.js';
 import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {UsageBar} from './usageBar.js';
 import {
@@ -22,12 +23,17 @@ class UsageRow extends St.BoxLayout {
         this.bar = new UsageBar();
         this._pct = new St.Label({style_class: 'cas-row-pct', y_align: Clutter.ActorAlign.CENTER});
         this._reset = new St.Label({style_class: 'cas-row-reset', y_align: Clutter.ActorAlign.CENTER});
+        // An icon, not a "↻" glyph: not every distro's UI font has that glyph.
+        this._resetIcon = new St.Icon({icon_name: 'view-refresh-symbolic', style_class: 'cas-row-reset-icon', y_align: Clutter.ActorAlign.CENTER});
+        const resetBox = new St.BoxLayout({style_class: 'cas-row-reset-box', x_align: Clutter.ActorAlign.END});
+        resetBox.add_child(this._resetIcon);
+        resetBox.add_child(this._reset);
         this._pct.clutter_text.x_align = Clutter.ActorAlign.END;
         this._reset.clutter_text.x_align = Clutter.ActorAlign.END;
         this.add_child(this._label);
         this.add_child(this.bar);
         this.add_child(this._pct);
-        this.add_child(this._reset);
+        this.add_child(resetBox);
         this._win = null;
     }
 
@@ -56,12 +62,13 @@ class UsageRow extends St.BoxLayout {
 
     setHover(hover) {
         const w = this._win;
+        this._resetIcon.visible = Boolean(w?.resetsAt) && !w?.estimated && !hover;
         if (!w)
             this._reset.text = '';
         else if (w.estimated)
             this._reset.text = _('reset');
         else if (w.resetsAt)
-            this._reset.text = hover ? countdown(w.resetsAt) : `↻ ${resetClock(w.resetsAt)}`;
+            this._reset.text = hover ? countdown(w.resetsAt) : resetClock(w.resetsAt);
         else
             this._reset.text = '';
     }
@@ -78,12 +85,12 @@ class AccountCard extends PopupMenu.PopupBaseMenuItem {
         this._acct = null;
         this._ctx = null;
 
-        this._card = new St.BoxLayout({vertical: true, style_class: 'cas-card', x_expand: true});
+        this._card = vbox({style_class: 'cas-card', x_expand: true});
         this.add_child(this._card);
 
         const head = new St.BoxLayout({style_class: 'cas-card-head', x_expand: true});
         this._dot = new St.Label({style_class: 'cas-dot', y_align: Clutter.ActorAlign.CENTER});
-        const titles = new St.BoxLayout({vertical: true, x_expand: true});
+        const titles = vbox({x_expand: true});
         this._title = new St.Label({style_class: 'cas-title'});
         this._title.clutter_text.ellipsize = 3; // PANGO_ELLIPSIZE_END
         this._subtitle = new St.Label({style_class: 'cas-subtitle'});
@@ -91,21 +98,21 @@ class AccountCard extends PopupMenu.PopupBaseMenuItem {
         titles.add_child(this._title);
         titles.add_child(this._subtitle);
         this._badge = new St.Label({style_class: 'cas-badge', y_align: Clutter.ActorAlign.CENTER});
-        this._spinner = new Animation.Spinner(16, {animate: false, hideOnStop: true});
+        this._spinner = new Spinner(16, {hideOnStop: true});
         head.add_child(this._dot);
         head.add_child(titles);
         head.add_child(this._spinner);
         head.add_child(this._badge);
         this._card.add_child(head);
 
-        this._rows = new St.BoxLayout({vertical: true, style_class: 'cas-rows', x_expand: true});
+        this._rows = vbox({style_class: 'cas-rows', x_expand: true});
         this._five = new UsageRow(_('5 h'));
         this._seven = new UsageRow(_('7 d'));
         this._rows.add_child(this._five);
         this._rows.add_child(this._seven);
         this._card.add_child(this._rows);
 
-        this._notes = new St.BoxLayout({vertical: true});
+        this._notes = vbox();
         this._card.add_child(this._notes);
 
         this._action = new St.Button({style_class: 'cas-banner-button', x_align: Clutter.ActorAlign.START, can_focus: true});
@@ -195,7 +202,7 @@ class AccountCard extends PopupMenu.PopupBaseMenuItem {
             this._notes.add_child(l);
         };
         if (needsLogin) {
-            note(_('⚠ The session of this account expired: sign in again.'), 'error');
+            note(_('The session of this account expired: sign in again.'), 'error');
         } else {
             for (const s of a.usage?.scoped ?? []) {
                 if (s.pct >= 50)

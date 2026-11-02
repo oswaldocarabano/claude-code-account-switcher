@@ -19,16 +19,24 @@ shell_in_sandbox() { # $1 = nested|headless ; extra env must be exported by the 
     export LANG=en_US.UTF-8 LANGUAGE="${CLAUDE_ACCOUNTS_LANG:-en}"
     export MUTTER_DEBUG_DUMMY_MODE_SPECS=1600x900
     schemedir="$REPO/extension/schemas"
-    flags="--nested --wayland"
-    [ "$mode" = headless ] && flags="--headless --wayland --virtual-monitor 1600x900"
+    # Flags differ between GNOME versions (e.g. X11/--wayland is gone in newer ones).
+    help=$(gnome-shell --help 2>&1 || true)
+    wayland=""; echo "$help" | grep -q -- '--wayland' && wayland="--wayland"
+    flags="--nested $wayland"
+    [ "$mode" = headless ] && flags="--headless $wayland --virtual-monitor 1600x900"
+    shellmode=""; gnome-shell --list-modes 2>/dev/null | grep -qx ubuntu && shellmode="--mode=ubuntu"
+    # CLAUDE_ACCOUNTS_IGNORE_VERSION=1: load the extension even if this GNOME
+    # version is not declared yet (compatibility testing).
+    noversion=""; [ "${CLAUDE_ACCOUNTS_IGNORE_VERSION:-0}" = 1 ] && noversion="gsettings set org.gnome.shell disable-extension-version-validation true"
     dbus-run-session -- sh -c "
         gsettings set org.gnome.shell disable-user-extensions false
+        $noversion
         gsettings set org.gnome.shell enabled-extensions \"['claude-account-switcher@oswaldocarabano.github.io', 'cas-devtools@sandbox.test']\"
         gsettings set org.gnome.desktop.interface color-scheme '${CLAUDE_ACCOUNTS_SCHEME:-prefer-dark}'
-        gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+        gsettings set org.gnome.desktop.interface gtk-theme '${CLAUDE_ACCOUNTS_GTK_THEME:-Yaru}'
         gsettings set org.gnome.desktop.notifications show-banners false
         gsettings --schemadir '$schemedir' set org.gnome.shell.extensions.claude-account-switcher claude-path ''
-        exec gnome-shell $flags --mode=ubuntu
+        exec gnome-shell $flags $shellmode
     "
 }
 
@@ -47,7 +55,7 @@ screenshots)
     out=$3
     mkdir -p "$out"
     export CLAUDE_ACCOUNTS_DEVTOOLS=screenshots CLAUDE_ACCOUNTS_DEVTOOLS_QUIT=1 CLAUDE_ACCOUNTS_SHOTS_DIR="$out" FAKE_LOGIN_HANG=1
-    for n in 3 8 1; do
+    for n in ${CLAUDE_ACCOUNTS_SHOT_ACCOUNTS:-3 8 1}; do
         tag=""; [ "$n" != 3 ] && tag="-$n"
         gjs -m "$REPO/tools/sandbox.js" setup "$root" --accounts "$n" >/dev/null
         CLAUDE_ACCOUNTS_SHOT_TAG="$tag" timeout 180 "$0" "${CLAUDE_ACCOUNTS_SHELL_MODE:-nested}" "$root" > "$root/shell-screenshots$tag.log" 2>&1 || true
