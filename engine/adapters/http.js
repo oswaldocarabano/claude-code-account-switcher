@@ -39,7 +39,7 @@ export function endpointsFromEnv(env = n => GLib.getenv(n)) {
 }
 
 export class Http {
-    constructor({apiBase, tokenUrl, userAgent = 'claude-accounts/0.2.0', timeoutS = 5}) {
+    constructor({apiBase, tokenUrl, userAgent = 'claude-accounts/0.2.1', timeoutS = 5}) {
         this.apiBase = apiBase;
         this.tokenUrl = tokenUrl;
         this.userAgent = userAgent;

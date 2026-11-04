@@ -2,13 +2,13 @@
 
 import {HttpError} from '../adapters/http.js';
 import {normalizeUsage} from '../domain/usage.js';
-import {accessToken, hasTokens, isExpired} from '../domain/credential.js';
+import {accessToken, expiresAt, hasTokens, isExpired} from '../domain/credential.js';
 import {refreshSlot} from './refresh.js';
 
 const EXPIRY_BUFFER_MS = 5 * 60 * 1000;
 
 /**
- * @returns {{usage?: object|null, error?: string, retryAfterS?: number|null}}
+ * @returns {{usage?: object|null, error?: string, retryAfterS?: number|null, noRequest?: boolean}}
  */
 export function fetchUsageFor(ctx, account, isActive, liveCred) {
     let token;
@@ -16,6 +16,11 @@ export function fetchUsageFor(ctx, account, isActive, liveCred) {
         token = accessToken(liveCred); // never refreshed by us: Claude Code owns it
         if (!token)
             return {error: 'needs-login'};
+        // An expired live token only earns 401/403s, and refreshing it is Claude Code's
+        // job (it does so the next time it is used): skip the request, keep the budget.
+        const exp = expiresAt(liveCred);
+        if (exp > 0 && exp <= ctx.clock())
+            return {error: 'active-expired', noRequest: true};
     } else {
         const cred = ctx.store.readSlotCred(account.uuid);
         if (!cred || !hasTokens(cred))

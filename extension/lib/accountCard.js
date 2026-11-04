@@ -210,7 +210,11 @@ class AccountCard extends PopupMenu.PopupBaseMenuItem {
             }
             if (a.usage?.spend)
                 note(`${_('Extra')}  ${moneyText(a.usage.spend)}`);
-            if (stale) {
+            if (a.usageError === 'active-expired') {
+                note(stale
+                    ? fmt(_('Usage will update when you use Claude Code; data from %s'), ago(a.usageFetchedAt))
+                    : _('Usage will update when you use Claude Code'));
+            } else if (stale) {
                 note(a.usageError === 'http-429'
                     ? fmt(_('Query limit reached; data from %s'), ago(a.usageFetchedAt))
                     : fmt(_('Data from %s'), ago(a.usageFetchedAt)));

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-11-04
+
+- Usage no longer gets stuck when the active account's token has expired (Claude Code renews it only when it is used). The engine sends no request with an expired token, so it no longer piles up 401/403 errors or uses up the hourly budget. The card says "Usage will update when you use Claude Code", and usage is read as soon as Claude Code renews the token.
+
 ## 0.2.0 — 2026-11-01
 
 - Supports GNOME Shell 45, 46, 47, 48, 49, 50 and 51 (was 46 only). Every version is tested in a container: engine tests, 20 enable/disable cycles and screenshots (`just compat`).

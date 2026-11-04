@@ -136,6 +136,20 @@ test('credential changes are debounced into a single cached refresh', () => {
     s.destroy();
 });
 
+test('a credential change reads usage at once when it was waiting for Claude Code', () => {
+    const waiting = account(1, 10, undefined, true);
+    waiting.usageError = 'active-expired';
+    const c = fakeClient({list: () => ({accounts: [waiting], active: {capture: 'same'}})});
+    const s = new Store(c, settings(), {timers: false});
+    s.credentialsChanged();
+    spin(() => c.calls.filter(x => x[0] === 'list').length >= 2, 4000);
+    const lists = c.calls.filter(x => x[0] === 'list');
+    assert.equal(lists.length, 2);
+    assert.equal(lists[0][1].cached, true);
+    assert.equal(lists[1][1].cached, false);
+    s.destroy();
+});
+
 test('destroy removes sources and handlers; later events are ignored', () => {
     const c = fakeClient();
     const s = new Store(c, settings(), {timers: false});

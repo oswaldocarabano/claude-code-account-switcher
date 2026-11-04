@@ -172,6 +172,12 @@ msgstr "इस खाते का सत्र समाप्त हो गय
 msgid "Extra"
 msgstr "अतिरिक्त"
 
+msgid "Usage will update when you use Claude Code; data from %s"
+msgstr "Claude Code इस्तेमाल करने पर उपयोग अपडेट होगा; डेटा %s का"
+
+msgid "Usage will update when you use Claude Code"
+msgstr "Claude Code इस्तेमाल करने पर उपयोग अपडेट होगा"
+
 msgid "Query limit reached; data from %s"
 msgstr "क्वेरी सीमा पूरी; डेटा %s का"
 

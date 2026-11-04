@@ -24,7 +24,7 @@ suite('cli');
 test('json envelope, version and unknown command', () => {
     const sb = new Sandbox(getApi());
     const v = sb.run(['--version']);
-    assert.equal(v.json.version, '0.2.0');
+    assert.equal(v.json.version, '0.2.1');
     const bad = sb.run(['frobnicate']);
     assert.equal(bad.status, 1);
     assert.equal(bad.json.schemaVersion, 1);
@@ -413,6 +413,34 @@ test('the live token is never refreshed by the engine, even if expired', () => {
     sb.run(['list', '--force']);
     assert.equal(sb.api.state().stats.token, tokenCalls);
     assert.equal(sb.liveCred().claudeAiOauth.refreshToken, c.claudeAiOauth.refreshToken);
+});
+
+test('an expired live token sends no usage request and reads usage once renewed', () => {
+    const sb = twoAccounts();
+    sb.run(['list']);
+    const c = sb.liveCred();
+    const validUntil = c.claudeAiOauth.expiresAt;
+    c.claudeAiOauth.expiresAt = Date.now() - 1000;
+    writeFile(sb.path('.claude/.credentials.json'), JSON.stringify(c));
+    const cachePath = sb.path('.cache/claude-accounts/usage.json');
+    const cache = readJson(cachePath);
+    cache.accounts[A.uuid].lastAttemptAt = '2000-01-01T00:00:00Z';
+    writeFile(cachePath, JSON.stringify(cache));
+    const calls = sb.api.state().stats.usage[A.uuid];
+    const recent = readJson(cachePath).accounts[A.uuid].recent.length;
+    for (let i = 0; i < 3; i++) {
+        const l = sb.run(['list', '--force']);
+        const a = l.json.accounts.find(x => x.uuid === A.uuid);
+        assert.equal(a.usageError, 'active-expired', l.stdout);
+        assert.ok(a.usage?.fiveHour, 'last good usage kept');
+    }
+    assert.equal(sb.api.state().stats.usage[A.uuid], calls, 'no request with an expired live token');
+    assert.equal(readJson(cachePath).accounts[A.uuid].recent.length, recent, 'nothing counted against the budget');
+    c.claudeAiOauth.expiresAt = validUntil; // Claude Code renewed it
+    writeFile(sb.path('.claude/.credentials.json'), JSON.stringify(c));
+    const l = sb.run(['list']);
+    assert.equal(l.json.accounts.find(x => x.uuid === A.uuid).usageError, null, l.stdout);
+    assert.equal(sb.api.state().stats.usage[A.uuid], calls + 1);
 });
 
 suite('manage');

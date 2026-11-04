@@ -126,13 +126,20 @@ export class Store extends Emitter {
         this._monitorId = this._monitor.connect('changed', () => this.credentialsChanged());
     }
 
-    /** Debounced: Claude Code rewrites the file on /login and token renewal. */
+    /**
+     * Debounced: Claude Code rewrites the file on /login and token renewal. If usage was
+     * waiting for Claude Code to renew the active token, read it right away (the engine
+     * sends no request while that token is still expired).
+     */
     credentialsChanged() {
         if (this._debounceId)
             GLib.source_remove(this._debounceId);
         this._debounceId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, DEBOUNCE_MS, () => {
             this._debounceId = 0;
-            this.refresh({cached: true});
+            this.refresh({cached: true}).then(() => {
+                if (this.activeAccount?.usageError === 'active-expired')
+                    this.refresh();
+            });
             return GLib.SOURCE_REMOVE;
         });
     }

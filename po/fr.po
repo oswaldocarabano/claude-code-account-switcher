@@ -172,6 +172,12 @@ msgstr "La session de ce compte a expiré : reconnectez-vous."
 msgid "Extra"
 msgstr "Extra"
 
+msgid "Usage will update when you use Claude Code; data from %s"
+msgstr "L’utilisation sera mise à jour quand vous utiliserez Claude Code ; données de %s"
+
+msgid "Usage will update when you use Claude Code"
+msgstr "L’utilisation sera mise à jour quand vous utiliserez Claude Code"
+
 msgid "Query limit reached; data from %s"
 msgstr "Limite de requêtes atteinte ; données de %s"
 

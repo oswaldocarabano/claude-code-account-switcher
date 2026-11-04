@@ -172,6 +172,12 @@ msgstr "此账户的会话已过期：请重新登录。"
 msgid "Extra"
 msgstr "额外"
 
+msgid "Usage will update when you use Claude Code; data from %s"
+msgstr "用量将在你使用 Claude Code 时更新；数据来自 %s"
+
+msgid "Usage will update when you use Claude Code"
+msgstr "用量将在你使用 Claude Code 时更新"
+
 msgid "Query limit reached; data from %s"
 msgstr "已达查询上限；数据来自 %s"
 

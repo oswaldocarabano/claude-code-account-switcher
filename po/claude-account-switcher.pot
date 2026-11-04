@@ -168,6 +168,12 @@ msgstr ""
 msgid "Extra"
 msgstr ""
 
+msgid "Usage will update when you use Claude Code; data from %s"
+msgstr ""
+
+msgid "Usage will update when you use Claude Code"
+msgstr ""
+
 msgid "Query limit reached; data from %s"
 msgstr ""
 

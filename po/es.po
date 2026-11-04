@@ -172,6 +172,12 @@ msgstr "La sesión de esta cuenta caducó: inicia sesión otra vez."
 msgid "Extra"
 msgstr "Extra"
 
+msgid "Usage will update when you use Claude Code; data from %s"
+msgstr "El uso se actualizará cuando uses Claude Code; datos de %s"
+
+msgid "Usage will update when you use Claude Code"
+msgstr "El uso se actualizará cuando uses Claude Code"
+
 msgid "Query limit reached; data from %s"
 msgstr "Límite de consultas; datos de %s"
 

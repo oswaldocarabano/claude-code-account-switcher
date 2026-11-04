@@ -85,7 +85,9 @@ export function list(ctx, {cached = false, force = false} = {}) {
                 continue;
             const r = fetchUsageFor(ctx, a, isActive, live.cred);
             const now = ctx.clock();
-            const next = recordAttempt(entry, now);
+            // no request was sent: nothing to count against the budget, and the entry stays
+            // due so usage is read as soon as Claude Code renews its token
+            const next = r.noRequest ? {...entry} : recordAttempt(entry, now);
             if (!r.error) {
                 Object.assign(next, {usage: r.usage, fetchedAt: iso(now), lastError: null, blockedUntil: null});
             } else {
